@@ -1,9 +1,5 @@
 $(function ($) {
 
-
-//variable para el numero de filas que se muestran a la hora de listar los emails
-
-
     $("#btnMails").click(function(ev){
         ev.preventDefault();
         $(".main-panel").remove();
@@ -15,6 +11,16 @@ $(function ($) {
         });
     })
 
+    $("#btnActividades").click(function(ev){
+            ev.preventDefault();
+            $(".main-panel").remove();
+            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+            $(".main-panel").load("/actividades", function(){
+
+
+            });
+    })
+
 
     $("#btnGaleria").click(function(ev){
             ev.preventDefault();
@@ -24,7 +30,7 @@ $(function ($) {
 
 
             });
-        })
+    })
 
     $("#btnPrincipal").click(function(ev){
         ev.preventDefault();
@@ -72,13 +78,10 @@ $(function ($) {
                               })
                       	})
 
-
         });
 
 
     })
-
-
 
 
 

@@ -1,6 +1,6 @@
 package com.fuentezuelas.AulaEmprendimiento.contacto.infrastructure.controller;
 
-import com.fuentezuelas.AulaEmprendimiento.actividad.infrastructure.repository.CursoRepository;
+import com.fuentezuelas.AulaEmprendimiento.actividad.infrastructure.repository.ActividadRepository;
 import com.fuentezuelas.AulaEmprendimiento.mail.application.MailSenderService;
 import com.fuentezuelas.AulaEmprendimiento.mail.domain.Mail;
 import com.fuentezuelas.AulaEmprendimiento.mail.infrastructure.repository.MailRepository;
@@ -16,7 +16,7 @@ import java.util.List;
 public class ContactoController {
 
     @Autowired
-    CursoRepository cursoRepository;
+    ActividadRepository cursoRepository;
 
     @Autowired
     MailRepository mailRepository;

@@ -862,7 +862,7 @@ body{
 }
 .is-sticky {
     margin-top: -0px;
-    background: #fff;
+    background: rgba(227,120,140,255);
     z-index: 1;
     z-index: 9;
 }
@@ -945,6 +945,13 @@ body{
 .header-bg{
     background: #fff;
 }
+/*
+
+.header-bg a{
+    color : white;
+}
+*/
+
 /* Navbar */
 .logo-smg{
     max-width: 350px;
