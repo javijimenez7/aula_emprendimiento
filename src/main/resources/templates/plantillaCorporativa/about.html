@@ -1,0 +1,214 @@
+<!doctype html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Smug - SEO and Digital Marketing Agency Template">
+        <meta name="keywords" content="digital agency, digital marketing, consulting, portfolio, web design agency, online marketing agency, design agency, seo, ssearch engine optimization, SMM, marketing, social media marketing, startup, web design service, seo agency">
+        <meta name="author" content="marveltheme.com">
+		
+        <title>Aula de Emprendimiento</title>
+		
+		<!-- favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="">
+        
+		<!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
+		<!-- style css -->
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="misArchivos/css/style.css">
+		<!-- modernizr js -->
+        <script src="front/js/vendor/modernizr-2.8.3.min.js"></script>
+		
+    </head>
+    <body>
+        <!-- Preloader Section -->
+		<div class="preloader-smg" id="overlay">
+            <div class="spinner"></div> 
+        </div>
+		<!-- End Section -->
+		
+		<!-- New Section -->
+    <div th:replace="plantillaCorporativa/header">
+
+	</div>
+
+        <div class="section-principal banner-area-2 banner-alt light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- End Section -->
+
+		<!-- Start Section -->
+		<div class="std-group section-padding">
+		    <div class="container">
+		        <div class="row">
+<!--		            <div class="col-lg-4">-->
+<!--		                <div class="group-img">-->
+<!--                            <a href="misArchivos/img/IMG_20220131_140122.jpg"><img src="misArchivos/img/IMG_20220131_140122.jpg" alt="Group Image"></a>-->
+<!--                            <br>-->
+<!--                            <br>-->
+<!--                            <a href="misArchivos/img/IMG_20220202_130209.jpg"><img src="misArchivos/img/IMG_20220202_130209.jpg" alt="Group Image"></a>-->
+<!--&lt;!&ndash;		                    <img src="front/img/team/group-img.jpg" alt="Group Image">&ndash;&gt;-->
+<!--		                </div>-->
+<!--		            </div>-->
+		            <div class="col-lg-8 offset-lg-1">
+						<div class="group-text" id="texto" style="display:none" th:text="${principal}"></div>
+		                <div class="group-text" id="contenido_principal">
+
+
+
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
+				
+		<!-- Start Section -->
+		<div class="footer-section section-padding">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-lg-4 col-sm-6">
+		                <div class="footer-set">
+		                    <div class="logo-smg footer-logo">
+                                <a class="navbar-brand" href="index.html"> <img src="front/img/logo.png" alt="Logo"> </a>
+                            </div>
+		                    <div class="footer-address">
+		                        <ul>
+		                            <li><span class="ti-headphone-alt"></span>+0044 545 989 626</li>
+		                            <li><span class="ti-email"></span>www.yourwebsite.com</li>
+		                            <li><span class="ti-location-pin"></span>28 Green Tower, Street Name, New York City, USA</li>
+		                        </ul>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="col-lg-2 col-sm-6">
+		                <div class="footer-set">
+		                    <div class="footer-head">
+		                        <h3>Quick Link</h3>
+		                    </div>
+		                    <div class="footer-menu">
+		                        <ul>
+		                            <li><a href="index.html">home page</a></li>
+		                            <li><a href="about.html">about us</a></li>
+		                            <li><a href="service.html">service</a></li>
+		                            <li><a href="index.html">how we work</a></li>
+		                            <li><a href="index.html">support center</a></li>
+		                            <li><a href="index.html">pricing</a></li>
+		                        </ul>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="col-lg-2 col-sm-6">
+		                <div class="footer-set">
+		                    <div class="footer-head">
+		                        <h3>About us</h3>
+		                    </div>
+		                    <div class="footer-menu">
+		                        <ul>
+		                            <li><a href="index.html">Jobs</a></li>
+		                            <li><a href="team.html">Team</a></li>
+		                            <li><a href="index.html">Portfolio</a></li>
+		                            <li><a href="index.html">Testimonials</a></li>
+		                            <li><a href="contact.html">Contact us</a></li>
+		                            <li><a href="blog.html">Blog</a></li>
+		                        </ul>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="col-lg-4 col-sm-6">
+                        <div class="footer-set footer-sub">
+                            <div class="footer-head">
+                                <h3>Newsletter</h3>
+                            </div>
+                            <div class="subscribe-form">
+                                <form id="mc-form">
+                                    <div class="subscribe-box">
+                                        <input id="mc-email" type="email" placeholder="Type our mail address" name="yourmail">
+                                        <button class="btn" type="submit">subscribe</button>
+                                    </div>
+                                </form>
+                                <!-- Mailchimp Alerts -->
+                                <div class="tm-mailchimp-alerts">
+                                    <div class="tm-mailchimp-submitting"></div>
+                                    <div class="mailchimp-success"></div>
+                                    <div class="tm-mailchimp-error"></div>
+                                </div>
+                                <!--// Mailchimp Alerts -->
+                            </div>
+                            <div class="social-media">
+                                <ul>
+                                    <li><a href="#"><span class="ti-facebook"></span></a></li>
+                                    <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
+                                    <li><a href="#"><span class="ti-vimeo-alt"></span></a></li>
+                                    <li><a href="#"><span class="ti-pinterest"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- End Section -->
+		
+		<!-- Start Section -->
+		<div class="copyright-section">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-lg-12">
+		                <div class="copyright text-center">
+		                    <p>Copyright @ 2019 <a href="https://themeforest.net/user/giant_theme">Giant-Theme</a> all right reserved.</p>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- End Section -->
+		
+		
+		<!-- All JS Here -->
+		<!-- jQuery Latest Version -->
+        <script src="front/js/vendor/jquery-1.12.4.min.js"></script>
+		<!-- Bootstrap JS -->
+        <script src="front/js/bootstrap.min.js"></script>
+		<!-- Form Validate -->
+         <script src="front/js/jquery.validate.min.js"></script>
+		<!-- isotope JS -->
+        <script src="front/js/isotope.pkgd.min.js"></script>
+		<!-- Wow JS -->
+        <script src="front/js/wow.min.js"></script>
+		<!-- Mailchimp JS -->
+        <script src="front/js/jquery.ajaxchimp.min.js"></script>
+        <!-- counterup JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+        <script src="front/js/jquery.counterup.min.js"></script>
+		<!-- Veno Box JS -->
+        <script src="front/js/venobox.min.js"></script>
+		<!-- slick slider js -->
+        <script src="front/js/slick.min.js"></script>
+		<!-- Plugins JS -->
+        <script src="front/js/plugins.js"></script>
+		<!-- main JS -->
+        <script src="front/js/main.js"></script>
+
+		<script>
+
+			var p = $("#texto").text();
+			var a = $.parseHTML(p);
+
+			for(let i=0; i<a.length;i++){
+				$("#contenido_principal").append(a[i]);
+			}
+				$("#contenido_principal").css("visibility", "visible");
+
+		</script>
+		
+    </body>
+</html>

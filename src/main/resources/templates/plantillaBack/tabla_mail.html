@@ -1,0 +1,39 @@
+<div class="content-wrapper" xmlns:th="http://www.w3.org/1999/xhtml">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Mails</h4>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="tabla_mail">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Date</th>
+                                    <th>Email</th>
+                                    <th>Asunto</th>
+                                    <th>Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="mail, iter: ${mails}">
+
+                                    <td th:text="${mail.idMail}"></td>
+                                    <td th:text="${mail.date}"></td>
+                                    <td th:text="${mail.emailto}"></td>
+                                    <td th:text="${mail.subject}"></td>
+                                    <td><button class="btn btn-info" th:id="'p'+${mail.idMail}">Responder</button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="../../misArchivos/js/back/enviaCorreo.js"></script>
+<script src="../../misArchivos/js/back/muestraPestañas.js"></script>
+<script src="../../misArchivos/js/back/datatable.js"></script>
