@@ -1,0 +1,39 @@
+<div class="content-wrapper" xmlns:th="http://www.w3.org/1999/xhtml">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Actividades</h4>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="tabla_actividades">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Descripcion</th>
+                                    <th>Archivo</th>
+                                    <th>Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="actividad, iter: ${actividades}">
+
+                                    <td th:text="${actividad.id}"></td>
+                                    <td th:text="${actividad.nombre}"></td>
+                                    <td th:text="${actividad.descripcion}"></td>
+                                    <td th:text="${actividad.archivo}"></td>
+                                    <td><button class="btn btn-info" style="padding:8px;" th:id="${actividad.id}">Ir a Ficha</button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="../../misArchivos/js/back/guardaActividad.js"></script>
+<script src="../../misArchivos/js/back/muestraPestañas.js"></script>
+<script src="../../misArchivos/js/back/datatable.js"></script>

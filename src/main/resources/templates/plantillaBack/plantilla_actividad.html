@@ -1,0 +1,48 @@
+<div class="content-wrapper" xmlns:th="http://www.w3.org/1999/xhtml">
+  <div class="row">
+    <div class="col-md-8 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Actividad</h4>
+          <form class="forms-sample">
+            <div class="form-group">
+
+              <div id="actividad_id" style="display:none" th:text="${id}"></div>
+
+              <div class=" col-md-4">
+                <label>Id</label>
+                <input th:readonly="readonly" th:value="${actividad.id}" th:id="actividad_id" th:class="form-control">
+              </div>
+
+              <div class=" col-md-6">
+                <label>Nombre</label>
+                <input th:value="${actividad.nombre}" th:id="actividad_nombre" th:class="form-control">
+              </div>
+              <br>
+
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <label>Imagen<strong> (Tiene que estar dentro de la carpeta 'misArchivos/img')</strong></label>
+                  <input type="file" id="actividad_archivo" class="form-control">
+                </div>
+                <br>
+                <div id="contenedor_imagen_actividad" class="col-md-6" style="width:600px; height:300px;">
+                  <img style="width:600px; height:300px;" th:src="'../../misArchivos/img/'+${actividad.archivo}">
+                </div>
+              </div>
+              <br>
+
+              <label>Descripcion</label>
+              <textarea style="height:300px;" class="form-control p-input" id="actividad_descripcion" rows="3" placeholder="Parrafo">
+              </textarea>
+            </div>
+            <button type="submit" class="btn btn-primary me-2" id="enviar_email">Guardar Datos</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
