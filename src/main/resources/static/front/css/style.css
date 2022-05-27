@@ -226,8 +226,8 @@ h6 {
     padding: 0;
 }
 .section-padding {
-    padding-top: 150px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 60px;
 }
 .section-pt {
     padding: 150px 0 0 0;
@@ -627,6 +627,19 @@ ul, ul li {
   margin: 0;
   padding: 0;
 }
+.footer-logo{
+     justify-content : center;
+     margin-left : 35%
+}
+.footer-menu ul, ul li{
+    float : left;
+    padding : 20px;
+}
+.footer-menu ul{
+ /*   margin-left:20%;*/
+    border-top : 1px solid #595959;
+}
+
 nav {
     background-color: transparent;
 }
@@ -2294,8 +2307,7 @@ body{
 
 /* Footer Section */
 .footer-section {
-  background: url("../img/bg/footer-bg.png") no-repeat scroll 0 0 / cover  rgba(0, 0, 0, 0);
-  padding-bottom: 240px;
+  background: rgba(68,68,68,255);
   margin-bottom: -20px;
     background-position: center;
 }
@@ -2323,14 +2335,15 @@ body{
     color: #595aff;
 }
 .footer-head h3 {
-    color: #595aff;
+    color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 40px;
+    margin-left : 40%
 }
 .footer-menu a {
-    color: #464545;
+    color : white;
     display: block;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
