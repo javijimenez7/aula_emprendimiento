@@ -31,31 +31,34 @@ $("#tabla_mail").DataTable({
                  });
 //Metodo que convierte la tabla de actividades en datatable
 $("#tabla_actividades").DataTable({
-                                              language: {
-                                                 "decimal": "",
-                                                 "emptyTable": "No hay información",
-                                                 "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                                                 "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                                                 "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-                                                 "infoPostFix": "",
-                                                 "thousands": ",",
-                                                 "lengthMenu": "Mostrar _MENU_ Entradas",
-                                                 "loadingRecords": "Cargando...",
-                                                 "processing": "Procesando...",
-                                                 "search": "Buscar:",
-                                                 "zeroRecords": "Sin resultados encontrados",
-                                                 "paginate": {
-                                                     "first": "Primero",
-                                                     "last": "Ultimo",
-                                                     "next": "Siguiente",
-                                                     "previous": "Anterior"
-                                                 }
-                                             },
-                                            "pageLength": 7,
-                                            "bJQueryUI": true,
-                                            "sPaginationType": "full_numbers",
-                                            "bPaginate": true,
-                                            "bFilter": true,
-                                            "bSort": true
-                                  });
+                          language: {
+                             "decimal": "",
+                             "emptyTable": "No hay información",
+                             "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                             "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                             "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                             "infoPostFix": "",
+                             "thousands": ",",
+                             "lengthMenu": "Mostrar _MENU_ Entradas",
+                             "loadingRecords": "Cargando...",
+                             "processing": "Procesando...",
+                             "search": "Buscar:",
+                             "zeroRecords": "Sin resultados encontrados",
+                             "paginate": {
+                                 "first": "Primero",
+                                 "last": "Ultimo",
+                                 "next": "Siguiente",
+                                 "previous": "Anterior"
+                             }
+                         },
+//                                            "aoColumns" : [ { sWidth: '50px' }, { sWidth: '100px' }, { sWidth: '120px' }, { sWidth: '30px' } ],
+
+
+                         "pageLength": 7,
+                         "bJQueryUI": true,
+                         "sPaginationType": "full_numbers",
+                         "bPaginate": true,
+                         "bFilter": true,
+                         "bSort": true
+              });
 });

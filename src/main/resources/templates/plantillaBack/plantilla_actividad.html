@@ -9,34 +9,37 @@
 
               <div id="actividad_id" style="display:none" th:text="${id}"></div>
 
-              <div class=" col-md-4">
-                <label>Id</label>
-                <input th:readonly="readonly" th:value="${actividad.id}" th:id="actividad_id" th:class="form-control">
-              </div>
+              <div class="row">
+                <div class=" col-md-4">
+                  <label>Id</label>
+                  <input th:readonly="readonly" th:value="${actividad.id}" th:id="actividad_id" th:class="form-control">
+                </div>
 
-              <div class=" col-md-6">
-                <label>Nombre</label>
-                <input th:value="${actividad.nombre}" th:id="actividad_nombre" th:class="form-control">
-              </div>
-              <br>
-
-              <div class="col-md-12">
-                <div class="col-md-6">
-                  <label>Imagen<strong> (Tiene que estar dentro de la carpeta 'misArchivos/img')</strong></label>
-                  <input type="file" id="actividad_archivo" class="form-control">
+                <div class=" col-md-6">
+                  <label>Nombre</label>
+                  <input th:value="${actividad.nombre}" th:id="actividad_nombre" th:class="form-control">
                 </div>
                 <br>
-                <div id="contenedor_imagen_actividad" class="col-md-6" style="width:600px; height:300px;">
-                  <img style="width:600px; height:300px;" th:src="'../../misArchivos/img/'+${actividad.archivo}">
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="col-md-8">
+                    <label>Imagen<strong> (Tiene que estar dentro de la carpeta 'misArchivos/img')</strong></label>
+                    <input type="file" id="actividad_archivo" class="form-control" th:value="${actividad.archivo}">
+                  </div>
+                  <br>
+                  <div id="contenedor_imagen_actividad" class="col-md-6" style="width:600px; height:300px;">
+                    <img style="width:600px; height:300px;" th:src="'../../misArchivos/img/'+${actividad.archivo}">
+                  </div>
                 </div>
               </div>
               <br>
 
               <label>Descripcion</label>
-              <textarea style="height:300px;" class="form-control p-input" id="actividad_descripcion" rows="3" placeholder="Parrafo">
-              </textarea>
+              <textarea style="height:300px;" class="form-control p-input textarea" id="actividad_descripcion" rows="3" placeholder="Parrafo" th:text="${actividad.descripcion}"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary me-2" id="enviar_email">Guardar Datos</button>
+            <button type="submit" class="btn btn-primary me-2" id="enviar_actividad">Guardar Datos</button>
           </form>
         </div>
       </div>
@@ -44,5 +47,14 @@
   </div>
 </div>
 
+<script src="../../misArchivos/js/tinymce/js/tinymce/tinymce.min.js"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/skins/content/tinymce-5/content.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/anchor/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/link/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/advlist/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/wordcount/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/image/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/charmap/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/media/plugin.min.css"></script>
 
 

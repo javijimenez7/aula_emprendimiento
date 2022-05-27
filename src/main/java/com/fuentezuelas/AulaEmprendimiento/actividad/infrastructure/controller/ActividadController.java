@@ -1,10 +1,9 @@
 package com.fuentezuelas.AulaEmprendimiento.actividad.infrastructure.controller;
 
+import com.fuentezuelas.AulaEmprendimiento.actividad.domain.Actividad;
 import com.fuentezuelas.AulaEmprendimiento.actividad.infrastructure.repository.ActividadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
@@ -25,12 +24,42 @@ public class ActividadController {
     }
 
     @GetMapping(value = "/cargaPlantillaActividad/{id}")
-    public ModelAndView cargaPlantilla(@PathVariable String id){
+    public ModelAndView cargaPlantilla(@PathVariable String id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("plantillaBack/plantilla_actividad");
-        modelAndView.addObject("actividad", actividadRepository.findById(id).get());
-        modelAndView.addObject("id", id);
+        if (!id.equals("0")) {
+            modelAndView.addObject("actividad", actividadRepository.findById(id).get());
+            modelAndView.addObject("id", id);
+            return modelAndView;
+        }
 
+        modelAndView.addObject("actividad", new Actividad(null, null, null, null));
+        modelAndView.addObject("id", 0);
         return modelAndView;
+
+    }
+
+    @PostMapping(value = "guardaActividad")
+    public void guardaActividad(@RequestParam(required = false, value = "idActividad") String id, @RequestParam(required = false, value = "nombre") String nombre, @RequestParam(required = false, value = "archivo") String archivo, @RequestParam(required = false, value = "descripcion") String descripcion) {
+        Actividad act = new Actividad();
+        if (actividadRepository.findById(id).isPresent()) {
+            act = actividadRepository.findById(id).orElseThrow();
+            act.setArchivo(archivo);
+            act.setDescripcion(descripcion);
+            act.setNombre(nombre);
+        } else {
+            act.setArchivo(archivo);
+            act.setDescripcion(descripcion);
+            act.setNombre(nombre);
+        }
+        actividadRepository.save(act);
+
+    }
+
+
+    @PostMapping(value = "eliminaActividad")
+    public void guardaActividad(@RequestParam(required = false, value = "idActividad") String id) {
+        Actividad act = actividadRepository.findById(id).orElseThrow();
+        actividadRepository.delete(act);
     }
 }

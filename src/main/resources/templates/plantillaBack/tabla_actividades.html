@@ -11,8 +11,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Descripcion</th>
-                                    <th>Archivo</th>
+                                    <th>Imagen Actividad</th>
                                     <th>Acciones</th>
                                 </tr>
                                 </thead>
@@ -21,9 +20,8 @@
 
                                     <td th:text="${actividad.id}"></td>
                                     <td th:text="${actividad.nombre}"></td>
-                                    <td th:text="${actividad.descripcion}"></td>
                                     <td th:text="${actividad.archivo}"></td>
-                                    <td><button class="btn btn-info" style="padding:8px;" th:id="${actividad.id}">Ir a Ficha</button></td>
+                                    <td><button class="btn btn-info" style="padding:8px;" th:id="${actividad.id}">Ir a Ficha</button>  <button class="btn btn-danger borrar" style="padding:8px;" th:id="${actividad.id}">Eliminar</button></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -35,5 +33,6 @@
     </div>
 
 <script src="../../misArchivos/js/back/guardaActividad.js"></script>
+<script src="../../misArchivos/js/back/eliminaActividad.js"></script>
 <script src="../../misArchivos/js/back/muestraPestañas.js"></script>
 <script src="../../misArchivos/js/back/datatable.js"></script>
