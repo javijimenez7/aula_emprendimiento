@@ -1,5 +1,6 @@
 package com.fuentezuelas.AulaEmprendimiento.principal.infrastructure.controller;
 
+import com.fuentezuelas.AulaEmprendimiento.actividad.infrastructure.repository.ActividadRepository;
 import com.fuentezuelas.AulaEmprendimiento.galeria.infrastructure.repository.GaleriaRepository;
 import com.fuentezuelas.AulaEmprendimiento.mail.infrastructure.repository.MailRepository;
 import com.fuentezuelas.AulaEmprendimiento.principal.domain.Principal;
@@ -22,6 +23,9 @@ public class PrincipalController {
     GaleriaRepository galeriaRepository;
 
     @Autowired
+    ActividadRepository actividadRepository;
+
+    @Autowired
     MailRepository mailRepository;
 
     @Value("${carpetaimagenes}")
@@ -33,6 +37,7 @@ public class PrincipalController {
         modelAndView.setViewName("plantillaCorporativa/about");
         modelAndView.addObject("principal", principalRepository.findAll().get(0).getDescripcion());
         modelAndView.addObject("carpeta", carpeta);
+        modelAndView.addObject("actividades", actividadRepository.findAll());
 
         return modelAndView;
     }

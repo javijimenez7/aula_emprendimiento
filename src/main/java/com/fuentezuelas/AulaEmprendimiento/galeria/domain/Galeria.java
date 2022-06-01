@@ -20,8 +20,12 @@ public class Galeria {
     Integer id;
 
     private String archivo;
+    private String titulo;
+    private String categoria;
 
-    public Galeria(String substring) {
+    public Galeria(String substring, String titulo, String categoria) {
         archivo = substring;
+        titulo = titulo;
+        categoria = categoria;
     }
 }

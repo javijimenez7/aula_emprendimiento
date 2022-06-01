@@ -49,70 +49,58 @@
 		<div class="std-group section-padding">
 		    <div class="container">
 		        <div class="row">
-<!--		            <div class="col-lg-4">-->
-<!--		                <div class="group-img">-->
-<!--                            <a href="misArchivos/img/IMG_20220131_140122.jpg"><img src="misArchivos/img/IMG_20220131_140122.jpg" alt="Group Image"></a>-->
-<!--                            <br>-->
-<!--                            <br>-->
-<!--                            <a href="misArchivos/img/IMG_20220202_130209.jpg"><img src="misArchivos/img/IMG_20220202_130209.jpg" alt="Group Image"></a>-->
-<!--&lt;!&ndash;		                    <img src="front/img/team/group-img.jpg" alt="Group Image">&ndash;&gt;-->
-<!--		                </div>-->
-<!--		            </div>-->
-		            <div class="col-lg-8 offset-lg-1">
+		            <div class="col-lg-10 offset-lg-1">
 						<div class="group-text" id="texto" style="display:none" th:text="${principal}"></div>
 		                <div class="group-text" id="contenido_principal">
-
-
-
 		                </div>
 		            </div>
+
+
 		        </div>
 		    </div>
 		</div>
 
-		<div class="footer-section section-padding">
-		    <div class="container">
-
-					<div class="logo-smg footer-logo">
-						<a class="navbar-brand" href="/"> <img src="../../misArchivos/img/logo_blanco.png" alt="Logo"> </a>
-					</div>
-
-
+		<div class="project-section section-padding no-pt pmb-30">
+			<img class="section-shape-1" src="../front/img/bg/section-bg-3.svg" alt="Image">
+			<div class="container">
 				<div class="row">
-		            <div class="col-lg-12 col-sm-12">
-		                <div class="footer-set">
-		                    <div class="footer-menu">
-								<ul>
-									<li>
-										<p>IES Las Fuentezuelas - Web Aula Emprendimiento</p>
-									</li>
-									<li>
-
-									</li>
-									<li>
-
-									</li>
-									<li>
-										<a href="index.html">INICIO</a>
-									</li>
-									<li>
-										<a href="#">ACTIVIDADES</a>
-									</li>
-									<li>
-										<a href="#">GALERÍA GRÁFICA</a>
-									</li>
-									<li>
-										<a href="#">CONTACTO</a>
-									</li>
-								</ul>
-		                    </div>
-		                </div>
-		            </div>
+					<div class="col-lg-7">
+						<div class="text-head">
+							<h4 class="dot-border">Actividades</h4>
+							<h1>Mira algunas de las actividades que podrás realizar en nuestra aula</h1>
+						</div>
+					</div>
+					<div class="offset-lg-2 col-lg-3">
+						<div class="head-btn">
+							<a href="/actividades" class="btn">Ir a Actividades</a>
+						</div>
+					</div>
 				</div>
-		    </div>
+				<div class="project">
+					<div class="project-slide">
+						<div th:each="actividad, iter: ${actividades}" th:if="${iter.index<=3}" class="single-project">
+							<div class="inner-project bg-gred-1">
+								<div class="project-img">
+									<img th:src="'../../misArchivos/img/'+${actividad.archivo}" alt="Project Image">
+								</div>
+								<div class="project-text text-center">
+									<a href="#" th:text="${actividad.nombre}"></a>
+								</div>
+								<div class="project-icon">
+									<a th:href="'detalle_actividad/'+${actividad.id}"><span class="ti-arrow-right"></span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-<!--		 End Section-->
 
+
+
+
+		<div th:replace="plantillaCorporativa/footer">
+		</div>
 		
 		
 		<!-- All JS Here -->

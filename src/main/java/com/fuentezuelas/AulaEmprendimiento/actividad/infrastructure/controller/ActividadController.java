@@ -12,7 +12,7 @@ public class ActividadController {
     @Autowired
     ActividadRepository actividadRepository;
 
-    @GetMapping(value = "/actividades")
+    @GetMapping(value = "/listado_actividades")
     public ModelAndView actividades() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("plantillaBack/tabla_actividades");
@@ -22,6 +22,29 @@ public class ActividadController {
         return modelAndView;
 
     }
+
+    @GetMapping(value = "/actividades")
+    public ModelAndView listado_actividades() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("plantillaCorporativa/actividades");
+
+        modelAndView.addObject("actividades", actividadRepository.findAll());
+
+        return modelAndView;
+
+    }
+
+    @GetMapping(value = "/detalle_actividad/{id}")
+    public ModelAndView detalle_actividad(@PathVariable String id) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("plantillaCorporativa/detalle_actividad");
+
+        modelAndView.addObject("actividad", actividadRepository.findById(id).orElseThrow());
+
+        return modelAndView;
+
+    }
+
 
     @GetMapping(value = "/cargaPlantillaActividad/{id}")
     public ModelAndView cargaPlantilla(@PathVariable String id) {

@@ -15,7 +15,7 @@ $(function ($) {
             ev.preventDefault();
             $(".main-panel").remove();
             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-            $(".main-panel").load("/actividades", function(){
+            $(".main-panel").load("/listado_actividades", function(){
 
 
             });
@@ -124,7 +124,7 @@ $(function ($) {
 
                             $(".main-panel").remove();
                             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                            $(".main-panel").load("/actividades", function(){
+                            $(".main-panel").load("/listado_actividades", function(){
 
                             });
 

@@ -29,6 +29,7 @@ public class Actividad {
     private String id;
     private String nombre;
     private String archivo;
+    @Lob
     private String descripcion;
 
 }
