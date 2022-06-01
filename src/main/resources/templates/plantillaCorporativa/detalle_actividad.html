@@ -1,0 +1,203 @@
+<!doctype html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Smug - SEO and Digital Marketing Agency Template">
+    <meta name="keywords" content="digital agency, digital marketing, consulting, portfolio, web design agency, online marketing agency, design agency, seo, ssearch engine optimization, SMM, marketing, social media marketing, startup, web design service, seo agency">
+    <meta name="author" content="marveltheme.com">
+
+    <title>Actividades</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
+    <!-- style css -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../misArchivos/css/style.css">
+    <!-- modernizr js -->
+    <script src="../front/js/vendor/modernizr-2.8.3.min.js"></script>
+
+</head>
+    <body>
+        <!-- Preloader Section -->
+		<div class="preloader-smg" id="overlay">
+            <div class="spinner"></div> 
+        </div>
+		<!-- End Section -->
+		
+		<!-- New Section -->
+        <header class="header-section header-bg w-100 " id="">
+
+            <div class="container-header">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand logo-smg" href="/"><img src="..\misArchivos\img\logo_blanco.png" alt="Logo"></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="ti-menu"></span>
+                            </button>
+                            <div class="navbar-custom justify-content-start" id="navbarSupportedContent">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/">Principal</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/actividades">Actividades</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/contactanos">Contáctanos</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <ul class="lista_header">
+                                <li>
+                                    <div class="header-icon">
+                                        <img src="../../front/img/icons/telephone.png" alt="Icon">
+                                    </div>
+                                    <a href="tel:0044545989626">953 36 69 05</a>
+                                </li>
+                                <li>
+                                    <div class="header-icon">
+                                        <img src="../../front/img/icons/mail.png" alt="Icon">
+                                    </div>
+                                    <a href="#">IESlasfuentezuelas@gmail.com</a>
+                                </li>
+                            </ul>
+                        </nav>
+
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="section-principal banner-area-2 banner-alt light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- End Section -->
+
+
+		<!-- Start Section -->
+		<div class="case-project-section no-pt">
+		    <div class="case-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 d-flex align-items-center">
+                            <div class="case-project case-project-left">
+                                <div class="case-project-icon case-pt-1">
+                                    <i class="flaticon-discussion"></i>
+                                </div>
+                                <div class="case-project-text">
+                                    <h1 th:text="${actividad.nombre}"></h1>
+                                    <div class="group-text" id="texto_actividad" style="display:none" th:text="${actividad.descripcion}"></div>
+                                    <div class="group-text" id="detalle_actividad"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="case-project-img">
+                                <img th:src="'../misArchivos/img/'+${actividad.archivo}" alt="Image">
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+		      </div>
+		</div>
+		<!-- End Section -->
+
+
+
+        <div class="footer-section section-padding">
+            <div class="container">
+                <div class="logo-smg footer-logo">
+                    <a class="navbar-brand" href="/"> <img src="../misArchivos/img/logo_blanco.png" alt="Logo"> </a>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <div class="footer-set">
+                            <div class="footer-menu">
+                                <ul>
+                                    <li>
+                                        <p>IES Las Fuentezuelas - Web Aula Emprendimiento</p>
+                                    </li>
+                                    <li>
+
+                                    </li>
+                                    <li>
+
+                                    </li>
+                                    <li>
+                                        <a href="index.html">INICIO</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">ACTIVIDADES</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">GALERÍA GRÁFICA</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">CONTACTO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- All JS Here -->
+        <!-- jQuery Latest Version -->
+        <script src="../front/js/vendor/jquery-1.12.4.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="../front/js/bootstrap.min.js"></script>
+        <!-- Form Validate -->
+        <script src="../front/js/jquery.validate.min.js"></script>
+        <!-- isotope JS -->
+        <script src="../front/js/isotope.pkgd.min.js"></script>
+        <!-- Wow JS -->
+        <script src="../front/js/wow.min.js"></script>
+        <!-- Mailchimp JS -->
+        <script src="../front/js/jquery.ajaxchimp.min.js"></script>
+        <!-- counterup JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+        <script src="../front/js/jquery.counterup.min.js"></script>
+        <!-- Veno Box JS -->
+        <script src="../front/js/venobox.min.js"></script>
+        <!-- slick slider js -->
+        <script src="../front/js/slick.min.js"></script>
+        <!-- Plugins JS -->
+        <script src="../front/js/plugins.js"></script>
+        <!-- main JS -->
+        <script src="../front/js/main.js"></script>
+
+        <script>
+
+			var p = $("#texto_actividad").text();
+			var a = $.parseHTML(p);
+
+			for(let i=0; i<a.length;i++){
+				$("#detalle_actividad").append(a[i]);
+			}
+				$("#detalle_actividad").css("visibility", "visible");
+
+		</script>
+    </body>
+</html>
