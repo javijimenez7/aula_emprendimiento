@@ -35,7 +35,11 @@ public class PrincipalController {
     public ModelAndView muestraPagina(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("plantillaCorporativa/about");
-        modelAndView.addObject("principal", principalRepository.findAll().get(0).getDescripcion());
+        if(principalRepository.findAll().size() == 0){
+            modelAndView.addObject("principal", "Texto prueba");
+        } else {
+            modelAndView.addObject("principal", principalRepository.findAll().get(0).getDescripcion());
+        }
         modelAndView.addObject("carpeta", carpeta);
         modelAndView.addObject("actividades", actividadRepository.findAll());
 
