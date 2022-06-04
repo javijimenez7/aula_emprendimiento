@@ -2,6 +2,7 @@ package com.fuentezuelas.AulaEmprendimiento.curso.domain;
 
 import com.fuentezuelas.AulaEmprendimiento.StringPrefixedSequenceIdGenerator;
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "curso")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Curso {
 
     @Id
@@ -27,8 +29,6 @@ public class Curso {
     )
     private String id;
 
-    @NotNull
     private String descripcion;
-
 
 }

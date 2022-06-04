@@ -1,0 +1,43 @@
+<div class="content-wrapper" xmlns:th="http://www.w3.org/1999/xhtml">
+  <div class="row">
+    <div class="col-md-8 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Curso</h4>
+          <form class="forms-sample">
+            <div class="form-group">
+
+              <div id="curso_id" style="display:none" th:text="${id}"></div>
+
+              <div class="row">
+                <div class=" col-md-4">
+                  <label>Id</label>
+                  <input th:readonly="readonly" th:value="${curso.id}" th:id="curso_id" th:class="form-control">
+                </div>
+
+                <div class=" col-md-6">
+                  <label>Curso</label>
+                  <input th:value="${curso.descripcion}" th:id="curso_descripcion" th:class="form-control">
+                </div>
+                <br>
+              </div>
+             </div>
+            <button type="submit" class="btn btn-primary me-2" id="enviar_curso">Guardar Datos</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../misArchivos/js/tinymce/js/tinymce/tinymce.min.js"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/skins/content/tinymce-5/content.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/anchor/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/link/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/advlist/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/wordcount/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/image/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/charmap/plugin.min.css"></script>
+<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/media/plugin.min.css"></script>
+
+

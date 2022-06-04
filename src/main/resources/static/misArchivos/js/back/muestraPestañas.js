@@ -17,10 +17,19 @@ $(function ($) {
             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
             $(".main-panel").load("/listado_actividades", function(){
 
-
             });
     })
 
+
+
+    $("#btnCursos").click(function(ev){
+            ev.preventDefault();
+            $(".main-panel").remove();
+            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+            $(".main-panel").load("/listado_cursos", function(){
+
+            });
+    })
 
     $("#btnGaleria").click(function(ev){
             ev.preventDefault();
@@ -133,6 +142,78 @@ $(function ($) {
                  })
               })
      })
+
+
+      $("#nuevo_curso").click(function(ev){
+          debugger;
+                  $(".main-panel").remove();
+                  $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                  $(".main-panel").load("/cargaPlantillaCurso/0", function(){
+
+                      $("#enviar_curso").click(function(ev){
+                          ev.preventDefault();
+
+
+                          $.ajax("guardaCurso", {
+                              type:"post",
+                              data : {
+                                  idCurso : $("#curso_id").text(),
+                                  descripcion : $("#curso_descripcion").val(),
+                                },
+                              success : function(data){
+
+                                 $(".main-panel").remove();
+                                 $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                                 $(".main-panel").load("/listado_cursos", function(){
+
+                                 });
+
+                              },
+                          })
+                      })
+                   })
+          })
+
+
+    $(".borrar_cursos").click(function(){
+        debugger;
+
+            $.ajax("eliminaCurso", {
+             type:"post",
+             data : {
+                 idCurso : this.id,
+             },
+             success : function(data){
+
+                $(".main-panel").remove();
+                $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                $(".main-panel").load("/listado_cursos", function(){
+
+                });
+
+             },
+         })
+
+    })
+
+     $(".borrar_actividades").click(function(){
+                        $.ajax("eliminaActividad", {
+                         type:"post",
+                         data : {
+                             idActividad : this.id,
+                         },
+                         success : function(data){
+
+                            $(".main-panel").remove();
+                            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                            $(".main-panel").load("/listado_actividades", function(){
+
+                            });
+
+                         },
+                     })
+
+        })
 
 
 
