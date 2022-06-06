@@ -16,10 +16,18 @@
                                 </div>
 
                                 <div class=" col-md-6">
-                                    <label>Nombre</label>
-                                    <input th:value="${imagen.titulo}" th:id="imagen_titulo" th:class="form-control">
+                                    <label>Categoria Imagen</label>
+                                    <select style="width:300px;" class="custom-select" name="imagen_categoria" id="imagen_categoria">
+                                        <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.titulo}"></option>
+                                    </select>
                                 </div>
                                 <br>
+                            </div>
+                            <div class="row">
+                                <div class=" col-md-4">
+                                    <label>Titulo Imagen</label>
+                                    <input th:value="${imagen.titulo}" th:id="imagen_titulo" th:class="form-control">
+                                </div>
                             </div>
                             <br>
                             <div class="row">
@@ -45,15 +53,3 @@
         </div>
     </div>
 </div>
-
-<script src="../../misArchivos/js/tinymce/js/tinymce/tinymce.min.js"></script>
-<script src="../../misArchivos/js/tinymce/js/tinymce/skins/content/tinymce-5/content.min.css"></script>
-<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/anchor/plugin.min.css"></script>
-<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/link/plugin.min.css"></script>
-<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/advlist/plugin.min.css"></script>
-<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/wordcount/plugin.min.css"></script>
-<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/image/plugin.min.css"></script>
-<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/charmap/plugin.min.css"></script>
-<script src="../../misArchivos/js/tinymce/js/tinymce/plugins/media/plugin.min.css"></script>
-
-

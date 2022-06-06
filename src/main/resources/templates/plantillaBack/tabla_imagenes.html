@@ -11,7 +11,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Imagen</th>
-                                <th>Nombre</th>
+                                <th>Titulo</th>
+                                <th>Categoria</th>
                                 <th>Acciones</th>
                             </tr>
                             </thead>
@@ -21,7 +22,8 @@
                                 <td th:text="${imagen.id}"></td>
                                 <td th:text="${imagen.archivo}"></td>
                                 <td th:text="${imagen.titulo}"></td>
-                                <td><button class="btn btn-info" style="padding:8px;" th:id="${imagen.id}">Ir a Ficha</button>  <button class="btn btn-danger borrar" style="padding:8px;" th:id="${imagen.id}">Eliminar</button></td>
+                                <td th:text="${imagen.categoria['titulo']}"></td>
+                                <td><button class="btn btn-info" style="padding:8px;" th:id="${imagen.id}">Ir a Ficha</button>  <button class="btn btn-danger borrar_imagenes" style="padding:8px;" th:id="${imagen.id}">Eliminar</button></td>
                             </tr>
                             </tbody>
                         </table>

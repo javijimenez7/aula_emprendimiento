@@ -37,14 +37,8 @@
 		<!-- New Section -->
 		<div th:replace="plantillaCorporativa/header"></div>
 
-		<div class="section-principal banner-area-2 banner-alt light">
-			<div class="container">
-				<div class="section contact-padding">
-					<div class="container">
-
-					</div>
-				</div>
-			</div>
+		<div class="section-principal">
+			<img src="../../misArchivos/img/conocenos.jpg">
 		</div>
 		<!-- End Section -->
 		
@@ -92,11 +86,10 @@
 								<br>
 								<div class="form-set">
 									<input type="text" class="empresa" id="empresa" name="empresa" placeholder="Empresa" value="">
-									<input type="text" name="asunto" id="asunto" placeholder="Asunto" value="">
 								</div>
 
 		                        <div class="form-set">
-		                        <textarea name="message" id="mensaje" placeholder="Mensaje"></textarea>
+		                        <textarea name="asunto" id="asunto" placeholder="asunto"></textarea>
 		                        </div>
 		                        <button type="button" id="btnEnviar" class="btn">ENVIAR</button>
 								<button type="button" style="display:none;"  id="btn_modal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"></button>

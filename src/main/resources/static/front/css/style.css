@@ -588,6 +588,12 @@ button:focus {
         padding: 8px 25px;
     }
 }
+@media screen and (max-width: 1180px) {
+    .lista_header{
+            display:none
+    }
+}
+
 
 /* Customize Form style
 ======================== */

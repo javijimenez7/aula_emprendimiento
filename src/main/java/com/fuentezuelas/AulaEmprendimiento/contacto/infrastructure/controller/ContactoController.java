@@ -36,7 +36,7 @@ public class ContactoController {
     @PostMapping(value = "enviaformulario")
     public ResponseEntity enviaFormulario(@RequestParam(required = false, value = "contacto") List<String> contacto){
 
-        Mail mail = new Mail(LocalDate.now(), contacto.get(2).substring(1,contacto.get(2).length()-1),  contacto.get(5).substring(1,contacto.get(5).length()-1) );
+        Mail mail = new Mail(LocalDate.now(), contacto.get(0).substring(2,contacto.get(0).length()-1), contacto.get(2).substring(1,contacto.get(2).length()-1),  contacto.get(5).substring(1,contacto.get(5).length()-1) );
         mailRepository.save(mail);
         return ResponseEntity.ok("ENVIADO");
     }

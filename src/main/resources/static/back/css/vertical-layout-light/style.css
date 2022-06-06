@@ -13701,7 +13701,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   z-index: 2;
   color: #0a58ca;
   background-color: #e9ecef;
-  border-color: #dee2e6;
+  border-color: dee2e6k;
 }
 
 .page-link:focus {
@@ -13727,7 +13727,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   color: #6c757d;
   pointer-events: none;
   background-color: #fff;
-  border-color: #dee2e6;
+  border-color: dee2e6k;
 }
 
 .page-link {
@@ -20052,7 +20052,7 @@ code {
 
 /* Footer */
 .footer {
-  background: #F4F5F7;
+  background: rgba(68,68,68,255);
   color: color(dark);
   padding: 30px 2.45rem;
   transition: all 0.25s ease;
@@ -20365,7 +20365,7 @@ code {
   padding-top: 16px;
   padding-bottom: 16px;
   z-index: 10;
-  background: #F4F5F7;
+  background: rgba(68,68,68,255);
 }
 
 .doc-content {
@@ -20734,7 +20734,7 @@ code {
   font-weight: 500;
   font-size: 13px;
   line-height: 18px;
-  color: #8D8D8D;
+  color: white;
   margin-bottom: 4px;
 }
 
@@ -23240,7 +23240,7 @@ code {
 }
 
 .form-check .form-check-label input[type="checkbox"]:disabled + .input-helper:before {
-  border-color: #dee2e6;
+  border-color: dee2e6k;
 }
 
 .form-check .form-check-label input[type="checkbox"]:disabled:checked + .input-helper:after {
@@ -25609,7 +25609,7 @@ dl li {
   font-weight: normal;
   font-size: 12px;
   line-height: 16px;
-  color: #8D8D8D;
+  color: white;
   padding-top: 14px;
   padding-bottom: 14px;
   padding-left: 0;
@@ -28867,7 +28867,7 @@ div.tagsinput span.tag a {
   flex-direction: row;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 120px;
+  padding-top: 92px;
 }
 
 .page-body-wrapper.full-page-wrapper {
@@ -28894,7 +28894,7 @@ div.tagsinput span.tag a {
 }
 
 .content-wrapper {
-  background: #F4F5F7;
+  background: rgba(68,68,68,255);
   padding: 1.5rem 2.187rem 1.5rem 3.5rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -28910,7 +28910,7 @@ div.tagsinput span.tag a {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 97px);
-  background: #F4F5F7;
+  background: rgba(68,68,68,255);
   font-family: "Manrope", sans-serif;
   font-weight: 500;
   padding: 0;
@@ -28949,7 +28949,7 @@ div.tagsinput span.tag a {
   align-items: center;
   white-space: nowrap;
   padding: 10px 35px 10px 35px;
-  color: #484848;
+  color: white;
   border-radius: 0px 20px 20px 0px;
   -webkit-transition-duration: 0.45s;
   -moz-transition-duration: 0.45s;
@@ -28974,7 +28974,7 @@ div.tagsinput span.tag a {
   font-size: 22px;
   line-height: 1;
   margin-right: 1rem;
-  color: #484848;
+  color: white;
 }
 
 .rtl .sidebar .nav .nav-item .nav-link i.menu-icon {
@@ -29070,7 +29070,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav .nav-item.nav-category {
-  color: #404040;
+  color: white;
   border-bottom: 1px solid rgba(255, 255, 255, 0.13);
   margin: 0 30px;
   font-size: 11px;
@@ -29137,7 +29137,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link {
-  color: #484848;
+  color: black;
   padding: 0.7rem 1rem;
   position: relative;
   font-size: 12px;
@@ -29282,7 +29282,7 @@ div.tagsinput span.tag a {
   -moz-transition: background 0.25s ease;
   -ms-transition: background 0.25s ease;
   box-shadow: none;
-  background: #F4F5F7;
+  background: rgba(68,68,68,255);
   /* Navbar color variations */
 }
 
@@ -29291,7 +29291,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-brand-wrapper {
-  background: #F4F5F7;
+  background: rgba(68,68,68,255);
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
@@ -29307,7 +29307,7 @@ div.tagsinput span.tag a {
 
 @media (max-width: 991px) {
   .sidebar-dark .navbar .navbar-brand-wrapper {
-    background: #F4F5F7;
+    background: rgba(68,68,68,255);
   }
 }
 
@@ -29396,7 +29396,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-menu-wrapper {
-  background: #F4F5F7;
+  background: rgba(68,68,68,255);
   transition: width 0.25s ease;
   -webkit-transition: width 0.25s ease;
   -moz-transition: width 0.25s ease;
@@ -29705,7 +29705,7 @@ div.tagsinput span.tag a {
   font-weight: normal;
   font-size: 28px;
   line-height: 38px;
-  color: #8D8D8D;
+  color: white;
   margin-bottom: 10px;
 }
 
@@ -29719,7 +29719,7 @@ div.tagsinput span.tag a {
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
-  color: #8D8D8D;
+  color: white;
   margin-bottom: 0;
 }
 
@@ -30621,7 +30621,7 @@ div.tagsinput span.tag a {
     background: #fff;
   }
   .sidebar-dark.sidebar-icon-only .navbar .navbar-brand-wrapper .navbar-toggler {
-    color: #484848;
+    color: black;
   }
   .sidebar-icon-only .navbar .navbar-brand-wrapper .brand-logo {
     display: none;
@@ -30652,7 +30652,7 @@ div.tagsinput span.tag a {
     position: static;
   }
   .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item .nav-link {
-    color: #484848;
+    color: black;
   }
   .sidebar-icon-only .sidebar .nav .nav-item .nav-link .menu-title,
   .sidebar-icon-only .sidebar .nav .nav-item .nav-link .badge, .sidebar-icon-only .sidebar .nav .nav-item .nav-link .menu-sub-title {
@@ -30718,7 +30718,7 @@ div.tagsinput span.tag a {
     box-shadow: -4px 0px 7px 0px rgba(182, 185, 189, 0.25);
   }
   .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
-    color: #484848;
+    color: black;
   }
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title:after {
     display: none;

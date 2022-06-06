@@ -1,0 +1,36 @@
+<div class="content-wrapper" xmlns:th="http://www.w3.org/1999/xhtml">
+  <div class="row">
+    <div class="col-md-8 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Categoria</h4>
+          <form class="forms-sample">
+            <div class="form-group">
+
+              <div id="categoria_id" style="display:none" th:text="${id}"></div>
+
+              <div class="row">
+                <div class=" col-md-4">
+                  <label>Id</label>
+                  <input th:readonly="readonly" th:value="${categoria.id}" th:id="categoria_id" th:class="form-control">
+                </div>
+
+                <div class=" col-md-6">
+                  <label>Nombre</label>
+                  <input th:value="${categoria.titulo}" th:id="categoria_titulo" th:class="form-control">
+                </div>
+                <br>
+              </div>
+              <br>
+            </div>
+            <button type="submit" class="btn btn-primary me-2" id="enviar_categoria">Guardar Datos</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

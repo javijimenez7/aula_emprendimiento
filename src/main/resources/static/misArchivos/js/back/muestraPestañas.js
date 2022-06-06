@@ -20,8 +20,6 @@ $(function ($) {
             });
     })
 
-
-
     $("#btnCursos").click(function(ev){
             ev.preventDefault();
             $(".main-panel").remove();
@@ -40,6 +38,16 @@ $(function ($) {
 
             });
     })
+
+    $("#btnCategorias").click(function(ev){
+                ev.preventDefault();
+                $(".main-panel").remove();
+                $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                $(".main-panel").load("/listado_categorias", function(){
+
+
+                });
+        })
 
     $("#btnPrincipal").click(function(ev){
         ev.preventDefault();
@@ -71,8 +79,8 @@ $(function ($) {
                      });
 
 
-                      	$("#enviar_principal").click(function(ev){
-                      	    ev.preventDefault();
+                        $("#enviar_principal").click(function(ev){
+                            ev.preventDefault();
                               var content = tinymce.get('p1').getContent();
 
                               $.ajax("/procesaDatosPrincipal", {
@@ -85,13 +93,12 @@ $(function ($) {
                                           },
 
                               })
-                      	})
+                        })
 
         });
     })
 
-
-     $("#nueva_actividad").click(function(ev){
+    $("#nueva_actividad").click(function(ev){
      debugger;
              $(".main-panel").remove();
              $("<div></div>").addClass("main-panel").appendTo("#contenedor");
@@ -143,8 +150,76 @@ $(function ($) {
               })
      })
 
+    $("#nueva_categoria").click(function(ev){
+     debugger;
+             $(".main-panel").remove();
+             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+             $(".main-panel").load("/cargaPlantillaCategoria/0", function(){
 
-      $("#nuevo_curso").click(function(ev){
+                 $("#enviar_categoria").click(function(ev){
+                     ev.preventDefault();
+
+
+                     $.ajax("guardaCategoria", {
+                         type:"post",
+                         data : {
+                             idCategoria : $("#categoria_id").text(),
+                             titulo : $("#categoria_titulo").val(),
+
+                         },
+                         success : function(data){
+
+                            $(".main-panel").remove();
+                            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                            $(".main-panel").load("/listado_categorias", function(){
+
+                            });
+
+                         },
+                     })
+                 })
+              })
+     })
+
+    $("#nueva_imagen").click(function(ev){
+          debugger;
+                  $(".main-panel").remove();
+                  $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                  $(".main-panel").load("/cargaPlantillaImagen/0", function(){
+
+
+                    $("#imagen_archivo").change(function(){
+                        $("#contenedor_imagen_img").find("img").attr("src", "../../misArchivos/img/"+ $("#imagen_archivo").val().substr(12));
+                    })
+
+                     $("#enviar_imagen").click(function(ev){
+                         ev.preventDefault();
+
+
+                         $.ajax("guardaImagen", {
+                             type:"post",
+                             data : {
+                                 idImagen : $("#imagen_id").text(),
+                                 categoria : $("#imagen_categoria").val(),
+                                 titulo : $("#imagen_titulo").val(),
+                                 archivo : $("#contenedor_imagen_img").find("img").attr("src").substr(22)
+                             },
+                             success : function(data){
+
+                                $(".main-panel").remove();
+                                $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                                $(".main-panel").load("/galeria", function(){
+
+                                });
+
+                             },
+                         })
+                    })
+                 })
+
+                })
+
+    $("#nuevo_curso").click(function(ev){
           debugger;
                   $(".main-panel").remove();
                   $("<div></div>").addClass("main-panel").appendTo("#contenedor");
@@ -174,7 +249,6 @@ $(function ($) {
                    })
           })
 
-
     $(".borrar_cursos").click(function(){
         debugger;
 
@@ -196,25 +270,60 @@ $(function ($) {
 
     })
 
-     $(".borrar_actividades").click(function(){
-                        $.ajax("eliminaActividad", {
+    $(".borrar_actividades").click(function(){
+                $.ajax("eliminaActividad", {
+                 type:"post",
+                 data : {
+                     idActividad : this.id,
+                 },
+                 success : function(data){
+
+                    $(".main-panel").remove();
+                    $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                    $(".main-panel").load("/listado_actividades", function(){
+
+                    });
+
+                 },
+             })
+
+        })
+
+    $(".borrar_categorias").click(function(){
+                        $.ajax("eliminaCategoria", {
                          type:"post",
                          data : {
-                             idActividad : this.id,
+                             idCategoria : this.id,
                          },
                          success : function(data){
 
                             $(".main-panel").remove();
                             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                            $(".main-panel").load("/listado_actividades", function(){
+                            $(".main-panel").load("/listado_categorias", function(){
 
                             });
 
                          },
                      })
 
-        })
+                })
 
+    $(".borrar_imagenes").click(function(){
+                                        $.ajax("eliminaImagen", {
+                                         type:"post",
+                                         data : {
+                                             idImagen : this.id,
+                                         },
+                                         success : function(data){
 
+                                            $(".main-panel").remove();
+                                            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                                            $(".main-panel").load("/galeria", function(){
 
+                                            });
+
+                                         },
+                                     })
+
+                                })
 })

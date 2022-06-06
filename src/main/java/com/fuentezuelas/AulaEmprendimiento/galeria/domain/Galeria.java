@@ -1,14 +1,10 @@
 package com.fuentezuelas.AulaEmprendimiento.galeria.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fuentezuelas.AulaEmprendimiento.categoria.domain.Categoria;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 @Entity
 @Data
@@ -20,12 +16,16 @@ public class Galeria {
     Integer id;
 
     private String archivo;
+    @ManyToOne
+    @JoinColumn(name = "fk_categoria") @EqualsAndHashCode.Exclude @ToString.Exclude
+    private Categoria categoria;
     private String titulo;
-    private String categoria;
 
-    public Galeria(String substring, String titulo, String categoria) {
+    public Galeria(String substring, Categoria catt, String tit) {
         archivo = substring;
-        titulo = titulo;
-        categoria = categoria;
+        categoria = catt;
+        titulo = tit;
+
+
     }
 }

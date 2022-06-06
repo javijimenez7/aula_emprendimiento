@@ -1,6 +1,37 @@
 .section-principal{
     width:100%;
-    height: 78%;
-    background:url("../img/conocenos.jpg") repeat scroll 45% 15%
 
+}
+
+@media (min-width: 200px) and (max-width: 500px) {
+     .section-principal{
+        height : 15%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 761px) {
+     .section-principal{
+        height : 30%;
+    }
+}
+
+@media (min-width: 761px) and (max-width: 1000px) {
+     .section-principal{
+        height : 55%;
+    }
+}
+
+
+@media (min-width: 1000px) and (max-width: 1300px) {
+    .section-principal {
+       height:68%;
+    }
+
+}
+
+
+@media (min-width: 1300px) and (max-width: 1500px) {
+    .section-principal {
+       height:82%;
+    }
 }

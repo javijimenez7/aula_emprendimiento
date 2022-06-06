@@ -342,14 +342,26 @@
         font-size: 20px;
     }
 }
+@media (min-width: 560px) and (max-width: 761px) {
+    .header-section {
+        height:320px;
+    }
 
+}
 
+@media (min-width: 200px) and (max-width: 560px) {
+    .header-section {
+        height:380px;
+    }
+
+}
 /* Tablet desktop :768px
 ===================================*/
 @media (min-width: 768px) and (max-width: 991px) {
     .header-section {
-        position: static !important;
+        height:350px;
     }
+
     .smg-banner-area.h-100 {
         height: auto !important;
     }

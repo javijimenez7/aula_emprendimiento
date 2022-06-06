@@ -38,7 +38,7 @@
         </div>
         <div>
           <a class="navbar-brand brand-logo" href="#">
-            <img src="../../misArchivos/img/Logo.png" alt="logo" />
+            <img src="../../misArchivos/img/logo_blanco.png" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="../../index.html">
             <img src="../../back/images/logo-mini.svg" alt="logo" />
@@ -117,11 +117,32 @@
               <span class="menu-title">Mails</span>
             </a>
           </li>
+
+
           <li class="nav-item">
-            <a class="nav-link" id="btnGaleria" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+            <a class="nav-link" id="btnGaleria" href="#imagenes" data-bs-toggle="collapse" aria-expanded="false" aria-controls="imagenes">
               <i class="menu-icon mdi mdi-file-image"></i>
               <span class="menu-title">Galeria Imagenes</span>
+              <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="imagenes">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" id="nueva_imagen" >Nueva imagen</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" id="btnCategorias" href="#categorias" data-bs-toggle="collapse" aria-expanded="false" aria-controls="categorias">
+              <i class="menu-icon mdi mdi-file-image"></i>
+              <span class="menu-title">Categorias Imagenes</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="categorias">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" id="nueva_categoria" >Nueva Categoria</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </nav>
@@ -173,6 +194,7 @@
   <script src="../../misArchivos/js/back/muestraPestañas.js"></script>
   <script src="../../misArchivos/js/back/enviaCorreo.js"></script>
   <script src="../../misArchivos/js/back/guardaActividad.js"></script>
+      <script src="../../misArchivos/js/back/guardaCategoria.js"></script>
   <script src="../../misArchivos/js/back/eliminaActividad.js"></script>
   <script src="../../misArchivos/js/back/addInputsImagenes.js"></script>
   <script src="../../misArchivos/js/back/paginador.js"></script>

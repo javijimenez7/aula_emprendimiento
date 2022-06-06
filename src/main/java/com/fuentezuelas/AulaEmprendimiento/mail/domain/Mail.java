@@ -24,11 +24,12 @@ public class Mail {
     private LocalDate date;
 
     private String emailto;
-
+    private String nombre;
     private String subject;
 
-    public Mail(LocalDate now, String s, String s1) {
+    public Mail(LocalDate now, String nombree, String s, String s1) {
         date = now;
+        nombre = nombree;
         emailto = s;
         subject = s1;
     }
