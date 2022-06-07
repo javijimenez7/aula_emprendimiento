@@ -47,11 +47,11 @@
                 <div th:each="actividad, iter: ${actividades}" class="col-lg-4 col-sm-6">
                     <div class="single-blog blog-set">
                         <div class="blog-img">
-                            <a href="#"><img th:src="'../../misArchivos/img/'+${actividad.archivo}" alt="Blog Image"></a>
+                            <a th:href="'/detalle_actividad/' + ${actividad.id}"><img th:src="'../../misArchivos/img/'+${actividad.archivo}" alt="Blog Image"></a>
                         </div>
                         <div class="blog-details">
                             <a th:href="'/detalle_actividad/' + ${actividad.id}"><h3 th:text="${actividad.nombre}"></h3></a>
-                            <p><span class="ti-calendar"></span>February 10, 2019</p>
+                            <p><span th:text="' '+${actividad.fechaCreacion}" class="ti-calendar"> </span></p>
                         </div>
                     </div>
                 </div>

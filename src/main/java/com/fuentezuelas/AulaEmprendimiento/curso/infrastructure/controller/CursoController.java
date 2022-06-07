@@ -25,11 +25,11 @@ public class CursoController {
 
     }
     @GetMapping(value = "/cargaPlantillaCurso/{id}")
-    public ModelAndView cargaPlantilla(@PathVariable String id) {
+    public ModelAndView cargaPlantilla(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("plantillaBack/plantilla_curso");
 
-        if (!id.equals("0")) {
+        if (!Integer.toString(id).equals("0")) {
             modelAndView.addObject("curso", cursoRepository.findById(id).get());
             modelAndView.addObject("id", id);
             return modelAndView;
@@ -42,7 +42,7 @@ public class CursoController {
     }
 
     @PostMapping(value = "guardaCurso")
-    public void guardaCurso(@RequestParam(required = false, value = "idCurso") String id, @RequestParam(required = false, value = "descripcion") String descripcion) {
+    public void guardaCurso(@RequestParam(required = false, value = "idCurso") Integer id, @RequestParam(required = false, value = "descripcion") String descripcion) {
         Curso cur = new Curso();
         if (cursoRepository.findById(id).isPresent()) {
             cur = cursoRepository.findById(id).orElseThrow();
@@ -57,7 +57,7 @@ public class CursoController {
     }
 
     @PostMapping(value = "eliminaCurso")
-    public void guardaActividad(@RequestParam(required = false, value = "idCurso") String id) {
+    public void guardaActividad(@RequestParam(required = false, value = "idCurso") Integer id) {
         Curso act = cursoRepository.findById(id).orElseThrow();
         cursoRepository.delete(act);
     }

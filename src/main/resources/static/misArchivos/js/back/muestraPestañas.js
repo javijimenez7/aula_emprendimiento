@@ -1,5 +1,6 @@
 $(function ($) {
 
+    // funcion que muestra el contenido de la pestaña "Mails" en el back
     $("#btnMails").click(function(ev){
         ev.preventDefault();
         $(".main-panel").remove();
@@ -11,6 +12,7 @@ $(function ($) {
         });
     })
 
+    // funcion que muestra el contenido de la pestaña "Actividades" en el back
     $("#btnActividades").click(function(ev){
             ev.preventDefault();
             $(".main-panel").remove();
@@ -20,6 +22,7 @@ $(function ($) {
             });
     })
 
+    // funcion que muestra el contenido de la pestaña "Cursos" en el back
     $("#btnCursos").click(function(ev){
             ev.preventDefault();
             $(".main-panel").remove();
@@ -29,6 +32,7 @@ $(function ($) {
             });
     })
 
+    // funcion que muestra el contenido de la pestaña "Galeria Imagenes" en el back
     $("#btnGaleria").click(function(ev){
             ev.preventDefault();
             $(".main-panel").remove();
@@ -39,6 +43,7 @@ $(function ($) {
             });
     })
 
+    // funcion que muestra el contenido de la pestaña "Categoria Imagenes" en el back
     $("#btnCategorias").click(function(ev){
                 ev.preventDefault();
                 $(".main-panel").remove();
@@ -49,6 +54,7 @@ $(function ($) {
                 });
         })
 
+    // funcion que muestra el contenido de la pestaña "Principal" en el back
     $("#btnPrincipal").click(function(ev){
         ev.preventDefault();
         $(".main-panel").remove();
@@ -98,6 +104,7 @@ $(function ($) {
         });
     })
 
+    // funcion que abre mediante ajax la plantilla de la actividad y crea una nueva
     $("#nueva_actividad").click(function(ev){
      debugger;
              $(".main-panel").remove();
@@ -150,6 +157,7 @@ $(function ($) {
               })
      })
 
+    // funcion que abre mediante ajax la plantilla de la categoria y crea una nueva
     $("#nueva_categoria").click(function(ev){
      debugger;
              $(".main-panel").remove();
@@ -181,6 +189,7 @@ $(function ($) {
               })
      })
 
+    // funcion que abre mediante ajax la plantilla de la imagen y crea una nueva
     $("#nueva_imagen").click(function(ev){
           debugger;
                   $(".main-panel").remove();
@@ -219,6 +228,7 @@ $(function ($) {
 
                 })
 
+    // funcion que abre mediante ajax la plantilla del curso y crea uno nuevo
     $("#nuevo_curso").click(function(ev){
           debugger;
                   $(".main-panel").remove();
@@ -249,6 +259,7 @@ $(function ($) {
                    })
           })
 
+    // funcion que elimina un curso y recarga el listado de cursos
     $(".borrar_cursos").click(function(){
         debugger;
 
@@ -270,6 +281,7 @@ $(function ($) {
 
     })
 
+    // funcion que elimina una actividad y recarga el listado de actividades
     $(".borrar_actividades").click(function(){
                 $.ajax("eliminaActividad", {
                  type:"post",
@@ -289,6 +301,7 @@ $(function ($) {
 
         })
 
+    // funcion que elimina una categoria y recarga el listado de categorias
     $(".borrar_categorias").click(function(){
                         $.ajax("eliminaCategoria", {
                          type:"post",
@@ -308,22 +321,23 @@ $(function ($) {
 
                 })
 
+    // funcion que elimina una imagen y recarga el listado de imagenes
     $(".borrar_imagenes").click(function(){
-                                        $.ajax("eliminaImagen", {
-                                         type:"post",
-                                         data : {
-                                             idImagen : this.id,
-                                         },
-                                         success : function(data){
+            $.ajax("eliminaImagen", {
+             type:"post",
+             data : {
+                 idImagen : this.id,
+             },
+             success : function(data){
 
-                                            $(".main-panel").remove();
-                                            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                                            $(".main-panel").load("/galeria", function(){
+                $(".main-panel").remove();
+                $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                $(".main-panel").load("/galeria", function(){
 
-                                            });
+                });
 
-                                         },
-                                     })
+             },
+         })
 
-                                })
+    })
 })

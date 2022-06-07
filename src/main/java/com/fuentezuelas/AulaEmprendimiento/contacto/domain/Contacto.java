@@ -16,6 +16,7 @@ import javax.persistence.*;
 public class Contacto {
 
     @Id
+    @Column(name = "id_contacto", length = 32)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqCO")
     @GenericGenerator(
             name = "seqCO",

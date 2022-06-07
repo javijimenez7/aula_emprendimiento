@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Data
@@ -16,20 +18,12 @@ import javax.persistence.*;
 public class Actividad {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqAC")
-    @GenericGenerator(
-            name = "seqAC",
-            strategy = "com.fuentezuelas.AulaEmprendimiento.StringPrefixedSequenceIdGenerator",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
-                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "ACT"),
-                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%03d")
-            }
-    )
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String nombre;
     private String archivo;
     @Lob
     private String descripcion;
+    private LocalDate fechaCreacion;
 
 }
