@@ -1,4 +1,6 @@
 $(function ($) {
+
+    //funcion para desloguearse
      $("#logout").click(function(){
              $.ajax("cierrasesion", {
                       type:"post",

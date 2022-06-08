@@ -1,7 +1,7 @@
 $(function ($) {
 
 //Metodo que convierte la tabla de mails en datatable
-$("#tabla_mail").DataTable({
+    $("#tabla_mail").DataTable({
                              language: {
                                 "decimal": "",
                                 "emptyTable": "No hay información",
@@ -28,9 +28,9 @@ $("#tabla_mail").DataTable({
                            "bPaginate": true,
                            "bFilter": true,
                            "bSort": true
-                 });
+    });
 //Metodo que convierte la tabla de actividades en datatable
-$("#tabla_actividades").DataTable({
+    $("#tabla_actividades").DataTable({
                           language: {
                              "decimal": "",
                              "emptyTable": "No hay información",
@@ -51,18 +51,16 @@ $("#tabla_actividades").DataTable({
                                  "previous": "Anterior"
                              }
                          },
-//                                            "aoColumns" : [ { sWidth: '50px' }, { sWidth: '100px' }, { sWidth: '120px' }, { sWidth: '30px' } ],
-
-
                          "pageLength": 7,
                          "bJQueryUI": true,
                          "sPaginationType": "full_numbers",
                          "bPaginate": true,
                          "bFilter": true,
                          "bSort": true
-              });
+    });
 
-$("#tabla_cursos").DataTable({
+
+    $("#tabla_cursos").DataTable({
                         language: {
                            "decimal": "",
                            "emptyTable": "No hay información",
@@ -83,16 +81,13 @@ $("#tabla_cursos").DataTable({
                                "previous": "Anterior"
                            }
                        },
-//                                            "aoColumns" : [ { sWidth: '50px' }, { sWidth: '100px' }, { sWidth: '120px' }, { sWidth: '30px' } ],
-
-
                        "pageLength": 7,
                        "bJQueryUI": true,
                        "sPaginationType": "full_numbers",
                        "bPaginate": true,
                        "bFilter": true,
                        "bSort": true
-            });
+    });
 
     $("#tabla_categorias").DataTable({
                             language: {
@@ -115,14 +110,11 @@ $("#tabla_cursos").DataTable({
                                    "previous": "Anterior"
                                }
                            },
-    //                                            "aoColumns" : [ { sWidth: '50px' }, { sWidth: '100px' }, { sWidth: '120px' }, { sWidth: '30px' } ],
-
-
                            "pageLength": 7,
                            "bJQueryUI": true,
                            "sPaginationType": "full_numbers",
                            "bPaginate": true,
                            "bFilter": true,
                            "bSort": true
-                });
+    });
 });

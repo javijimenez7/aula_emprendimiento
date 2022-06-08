@@ -23,8 +23,6 @@ $(function ($) {
                 toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | forecolor backcolor|  bullist numlist outdent indent | removeformat | help'
          });
 
-
-
 	$("#enviar_principal").click(function(ev){
 	    ev.preventDefault();
         var content = tinymce.get('p1').getContent();

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @RestController
 public class ActividadController {
@@ -59,7 +58,7 @@ public class ActividadController {
             return modelAndView;
         }
 
-        modelAndView.addObject("actividad", new Actividad(null, null, null, null,null));
+        modelAndView.addObject("actividad", new Actividad(null, null, null, null, null));
         modelAndView.addObject("id", 0);
         return modelAndView;
 

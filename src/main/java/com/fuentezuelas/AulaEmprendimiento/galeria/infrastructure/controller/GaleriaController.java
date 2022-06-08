@@ -37,7 +37,7 @@ public class GaleriaController {
     @GetMapping(value = "/portfolio")
     public ModelAndView imagenes(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("plantillaCorporativa/Portfolio");
+        modelAndView.setViewName("plantillaCorporativa/portfolio");
         modelAndView.addObject("imagenes", galeriaRepository.findAll());
         modelAndView.addObject("categorias", categoriaRepository.findAll());
         return modelAndView;

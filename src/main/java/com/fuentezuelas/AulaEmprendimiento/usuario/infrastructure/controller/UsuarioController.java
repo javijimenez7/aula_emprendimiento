@@ -1,5 +1,6 @@
 package com.fuentezuelas.AulaEmprendimiento.usuario.infrastructure.controller;
 
+import com.fuentezuelas.AulaEmprendimiento.categoria.domain.Categoria;
 import com.fuentezuelas.AulaEmprendimiento.principal.infrastructure.repository.PrincipalRepository;
 import com.fuentezuelas.AulaEmprendimiento.usuario.domain.Usuario;
 import com.fuentezuelas.AulaEmprendimiento.usuario.infrastructure.repository.UsuarioRepository;
@@ -7,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponseWrapper;
@@ -77,5 +75,26 @@ public class UsuarioController {
         modelAndView.setViewName("plantillaBack/login");
 
         return modelAndView;
+    }
+
+    @GetMapping(value = "/cargaPlantillaUsuario")
+    public ModelAndView cargaPlantillaImagen() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("plantillaBack/plantilla_usuario");
+
+        modelAndView.addObject("usuario", usuarioRepository.findById(1).get());
+        modelAndView.addObject("id", 1);
+        return modelAndView;
+
+    }
+
+    @PostMapping(value = "guardaUsuario")
+    public void guardaActividad(@RequestParam(required = false, value = "idUsuario") Integer id, @RequestParam(required = false, value = "usuario") String usuario, @RequestParam(required = false, value = "password") String password) {
+        Usuario us = usuarioRepository.findById(id).orElseThrow();
+        us.setUser(usuario);
+        us.setPassword(password);
+
+        usuarioRepository.save(us);
+
     }
 }

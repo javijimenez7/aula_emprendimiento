@@ -1,7 +1,5 @@
 package com.fuentezuelas.AulaEmprendimiento.curso.infrastructure.controller;
 
-import com.fuentezuelas.AulaEmprendimiento.actividad.domain.Actividad;
-import com.fuentezuelas.AulaEmprendimiento.actividad.infrastructure.repository.ActividadRepository;
 import com.fuentezuelas.AulaEmprendimiento.curso.domain.Curso;
 import com.fuentezuelas.AulaEmprendimiento.curso.infrastructure.repository.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

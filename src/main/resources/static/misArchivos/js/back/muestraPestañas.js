@@ -106,7 +106,6 @@ $(function ($) {
 
     // funcion que abre mediante ajax la plantilla de la actividad y crea una nueva
     $("#nueva_actividad").click(function(ev){
-     debugger;
              $(".main-panel").remove();
              $("<div></div>").addClass("main-panel").appendTo("#contenedor");
              $(".main-panel").load("/cargaPlantillaActividad/0", function(){
@@ -159,7 +158,6 @@ $(function ($) {
 
     // funcion que abre mediante ajax la plantilla de la categoria y crea una nueva
     $("#nueva_categoria").click(function(ev){
-     debugger;
              $(".main-panel").remove();
              $("<div></div>").addClass("main-panel").appendTo("#contenedor");
              $(".main-panel").load("/cargaPlantillaCategoria/0", function(){
@@ -191,7 +189,6 @@ $(function ($) {
 
     // funcion que abre mediante ajax la plantilla de la imagen y crea una nueva
     $("#nueva_imagen").click(function(ev){
-          debugger;
                   $(".main-panel").remove();
                   $("<div></div>").addClass("main-panel").appendTo("#contenedor");
                   $(".main-panel").load("/cargaPlantillaImagen/0", function(){
@@ -230,7 +227,6 @@ $(function ($) {
 
     // funcion que abre mediante ajax la plantilla del curso y crea uno nuevo
     $("#nuevo_curso").click(function(ev){
-          debugger;
                   $(".main-panel").remove();
                   $("<div></div>").addClass("main-panel").appendTo("#contenedor");
                   $(".main-panel").load("/cargaPlantillaCurso/0", function(){
@@ -256,12 +252,11 @@ $(function ($) {
                               },
                           })
                       })
-                   })
-          })
+                  })
+    })
 
     // funcion que elimina un curso y recarga el listado de cursos
     $(".borrar_cursos").click(function(){
-        debugger;
 
             $.ajax("eliminaCurso", {
              type:"post",
@@ -339,5 +334,56 @@ $(function ($) {
              },
          })
 
+    })
+
+    // funcion que abre mediante ajax la plantilla del usuario y lo modifica
+    $("#modificar_usuario").click(function(ev){
+             $(".main-panel").remove();
+             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+             $(".main-panel").load("/cargaPlantillaUsuario", function(){
+
+                $("#mostrar_contraseña").click(function(){
+                    var pass = $("#usuario_password");
+                    if(pass.attr('type') == 'password'){
+                        pass.attr('type','text');
+                    } else {
+                        pass.attr('type','password');
+                    }
+
+                })
+
+                 $("#enviar_usuario").click(function(ev){
+                     ev.preventDefault();
+                     debugger;
+                      user = $("#usuario_username").val();
+                      pass = $("#usuario_password").val();
+
+                      if( user.length < 1 || pass.length <1 ){
+                        alert("Campos usuario y contraseña no pueden estar vacios");
+                     } else
+                     {
+
+
+                     $.ajax("guardaUsuario", {
+                         type:"post",
+                         data : {
+                             idUsuario : $("#usuario_id").text(),
+                             usuario : $("#usuario_username").val(),
+                             password : $("#usuario_password").val()
+
+                         },
+                         success : function(data){
+
+                            $(".main-panel").remove();
+                            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                            $(".main-panel").load("/listado_actividades", function(){
+
+                            });
+
+                         },
+                     })
+                     }
+                 })
+              })
     })
 })
