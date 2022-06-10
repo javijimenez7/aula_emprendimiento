@@ -4,7 +4,10 @@ import com.fuentezuelas.AulaEmprendimiento.actividad.domain.Actividad;
 import com.fuentezuelas.AulaEmprendimiento.categoria.domain.Categoria;
 import com.fuentezuelas.AulaEmprendimiento.categoria.infrastructure.repository.CategoriaRepository;
 import com.fuentezuelas.AulaEmprendimiento.galeria.domain.Galeria;
+import com.fuentezuelas.AulaEmprendimiento.galeria.infrastructure.repository.GaleriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -13,6 +16,8 @@ public class CategoriaController {
 
     @Autowired
     CategoriaRepository categoriaRepository;
+    @Autowired
+    GaleriaRepository galeriaRepository;
 
     @GetMapping(value = "/listado_categorias")
     public ModelAndView mails(){
@@ -52,9 +57,15 @@ public class CategoriaController {
     }
 
     @PostMapping(value = "eliminaCategoria")
-    public void guardaActividad(@RequestParam(required = false, value = "idCategoria") Integer id) {
+    public ResponseEntity<String> guardaActividad(@RequestParam(required = false, value = "idCategoria") Integer id) throws Exception {
         Categoria act = categoriaRepository.findById(id).orElseThrow();
-        categoriaRepository.delete(act);
+        if(galeriaRepository.findByCategoria(act).isPresent()){
+           return new ResponseEntity<String>("No puedes", HttpStatus.BAD_REQUEST );
+        } else {
+            categoriaRepository.delete(act);
+            return new ResponseEntity<String>(HttpStatus.OK );
+        }
+
     }
 
 }

@@ -36,9 +36,13 @@ $(function ($) {
                          },
                          success : function(data){
 
-                            $(".main-panel").remove();
-                            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                            $(".main-panel").load("/mails", function(){
+                             $("#modalHora").find(".modal-body").children().remove();
+                             $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
+                             $("#modalHora").find(".modal-body").append("<p>Correo enviado correctamente</p>");
+                             $("#modalHora").modal("show");
+                             $(".main-panel").remove();
+                             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                             $(".main-panel").load("/mails", function(){
 
                             });
 

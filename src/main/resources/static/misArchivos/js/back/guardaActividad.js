@@ -1,56 +1,50 @@
 $(function ($) {
 
-    $("#tabla_actividades").find("button").click(function(){
+   jQuery.validator.setDefaults({
+          debug: true,
+          success: "¡Correcto!"
+      });
 
-         $(".main-panel").remove();
-         $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-         $(".main-panel").load("/cargaPlantillaActividad/"+ this.id, function(){
-          tinymce.init({
-                            selector: '#actividad_descripcion',
-                            width: "100%",
-                            height: 400,
-                            plugins: [
-                                      'advlist',
-                                      'anchor',
-                                      'link',
-                                      'wordcount',
-                                      'media',
-                                      'charmap',
-                                      'image'
+   var validator = $("#formulario_actividad").validate({
+          rules: {
+              actividad_nombre: {
+                  required: true,
+                  rangelength: [5, 25]
+              }
+          },
+          messages: {
+              actividad_nombre: {
+                  required: "Escribe un nombre",
+                  rangelength: "El nombre debe de tener entre 4 y 25 caracteres"
+              }
+          }
+   })
 
-                                   ],
-                            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | forecolor backcolor|  bullist numlist outdent indent | removeformat | help'
-                     });
+     $("#enviar_actividad").click(function(ev){
+         ev.preventDefault();
+          var content = tinymce.get('actividad_descripcion').getContent();
 
-            $("#actividad_archivo").change(function(){
-                $("#contenedor_imagen_actividad").find("img").attr("src", "../../misArchivos/img/"+ $("#actividad_archivo").val().substr(12));
-            })
+         $.ajax("guardaActividad", {
+             type:"post",
+             data : {
+                 idActividad : $("#actividad_id").text(),
+                 nombre : $("#actividad_nombre").val(),
+                 descripcion : content,
+                 archivo : $("#contenedor_imagen_actividad").find("img").attr("src").substr(22)
+             },
+             success : function(data){
 
-             $("#enviar_actividad").click(function(ev){
-                 ev.preventDefault();
-                  var content = tinymce.get('actividad_descripcion').getContent();
+                 $("#modalHora").find(".modal-body").children().remove();
+                 $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
+                 $("#modalHora").find(".modal-body").append("<p>Actividad modificada correctamente</p>");
+                 $("#modalHora").modal("show");
+                $(".main-panel").remove();
+                $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                $(".main-panel").load("/listado_actividades", function(){
 
-                 $.ajax("guardaActividad", {
-                     type:"post",
-                     data : {
-                         idActividad : $("#actividad_id").text(),
-                         nombre : $("#actividad_nombre").val(),
-                         descripcion : content,
-                         archivo : $("#contenedor_imagen_actividad").find("img").attr("src").substr(22)
-                     },
-                     success : function(data){
+                });
 
-                        $(".main-panel").remove();
-                        $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                        $(".main-panel").load("/listado_actividades", function(){
-
-                        });
-
-                     },
-                 })
-            })
+             },
          })
-
     })
-
-})
+ })

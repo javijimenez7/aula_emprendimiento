@@ -144,11 +144,15 @@ $(function ($) {
                          },
                          success : function(data){
 
-                            $(".main-panel").remove();
-                            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                            $(".main-panel").load("/listado_actividades", function(){
+                             $("#modalHora").find(".modal-body").children().remove();
+                             $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
+                             $("#modalHora").find(".modal-body").append("<p>Actividad guardada correctamente</p>");
+                             $("#modalHora").modal("show");
+                             $(".main-panel").remove();
+                             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                             $(".main-panel").load("/listado_actividades", function(){
 
-                            });
+                             });
 
                          },
                      })
@@ -175,6 +179,10 @@ $(function ($) {
                          },
                          success : function(data){
 
+                            $("#modalHora").find(".modal-body").children().remove();
+                            $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
+                            $("#modalHora").find(".modal-body").append("<p>Categoria guardada correctamente</p>");
+                            $("#modalHora").modal("show");
                             $(".main-panel").remove();
                             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
                             $(".main-panel").load("/listado_categorias", function(){
@@ -212,6 +220,10 @@ $(function ($) {
                              },
                              success : function(data){
 
+                                $("#modalHora").find(".modal-body").children().remove();
+                                $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
+                                $("#modalHora").find(".modal-body").append("<p>Imagen guardada correctamente</p>");
+                                $("#modalHora").modal("show");
                                 $(".main-panel").remove();
                                 $("<div></div>").addClass("main-panel").appendTo("#contenedor");
                                 $(".main-panel").load("/galeria", function(){
@@ -243,6 +255,10 @@ $(function ($) {
                                 },
                               success : function(data){
 
+                                 $("#modalHora").find(".modal-body").children().remove();
+                                 $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
+                                 $("#modalHora").find(".modal-body").append("<p>Curso guardado correctamente</p>");
+                                 $("#modalHora").modal("show");
                                  $(".main-panel").remove();
                                  $("<div></div>").addClass("main-panel").appendTo("#contenedor");
                                  $(".main-panel").load("/listado_cursos", function(){
@@ -253,87 +269,6 @@ $(function ($) {
                           })
                       })
                   })
-    })
-
-    // funcion que elimina un curso y recarga el listado de cursos
-    $(".borrar_cursos").click(function(){
-
-            $.ajax("eliminaCurso", {
-             type:"post",
-             data : {
-                 idCurso : this.id,
-             },
-             success : function(data){
-
-                $(".main-panel").remove();
-                $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                $(".main-panel").load("/listado_cursos", function(){
-
-                });
-
-             },
-         })
-
-    })
-
-    // funcion que elimina una actividad y recarga el listado de actividades
-    $(".borrar_actividades").click(function(){
-                $.ajax("eliminaActividad", {
-                 type:"post",
-                 data : {
-                     idActividad : this.id,
-                 },
-                 success : function(data){
-
-                    $(".main-panel").remove();
-                    $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                    $(".main-panel").load("/listado_actividades", function(){
-
-                    });
-
-                 },
-             })
-
-        })
-
-    // funcion que elimina una categoria y recarga el listado de categorias
-    $(".borrar_categorias").click(function(){
-                        $.ajax("eliminaCategoria", {
-                         type:"post",
-                         data : {
-                             idCategoria : this.id,
-                         },
-                         success : function(data){
-
-                            $(".main-panel").remove();
-                            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                            $(".main-panel").load("/listado_categorias", function(){
-
-                            });
-
-                         },
-                     })
-
-                })
-
-    // funcion que elimina una imagen y recarga el listado de imagenes
-    $(".borrar_imagenes").click(function(){
-            $.ajax("eliminaImagen", {
-             type:"post",
-             data : {
-                 idImagen : this.id,
-             },
-             success : function(data){
-
-                $(".main-panel").remove();
-                $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                $(".main-panel").load("/galeria", function(){
-
-                });
-
-             },
-         })
-
     })
 
     // funcion que abre mediante ajax la plantilla del usuario y lo modifica
@@ -359,8 +294,12 @@ $(function ($) {
                       pass = $("#usuario_password").val();
 
                       if( user.length < 1 || pass.length <1 ){
-                        alert("Campos usuario y contraseña no pueden estar vacios");
-                     } else
+                          $("#modalHora").find(".modal-body").children().remove();
+                          $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
+                          $("#modalHora").find(".modal-body").append("<h4>Campo usuario o contraseña no pueden ser nulos</h4>");
+                          $("#modalHora").modal("show");
+                      } else
+
                      {
 
 
@@ -374,9 +313,13 @@ $(function ($) {
                          },
                          success : function(data){
 
-                            $(".main-panel").remove();
-                            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                            $(".main-panel").load("/listado_actividades", function(){
+                             $("#modalHora").find(".modal-body").children().remove();
+                             $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
+                             $("#modalHora").find(".modal-body").append("<p>Usuario modificado correctamente</p>");
+                             $("#modalHora").modal("show");
+                             $(".main-panel").remove();
+                             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+                             $(".main-panel").load("/listado_actividades", function(){
 
                             });
 

@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Categoria</h4>
-          <form class="forms-sample">
+          <form id="formulario_categoria" class="forms-sample">
             <div class="form-group">
 
               <div id="categoria_id" style="display:none" th:text="${id}"></div>
@@ -17,19 +17,24 @@
 
                 <div class=" col-md-6">
                   <label>Nombre</label>
-                  <input th:value="${categoria.titulo}" th:id="categoria_titulo" th:class="form-control">
+                  <input th:value="${categoria.titulo}" th:id="categoria_titulo" name="categoria_nombre" th:class="form-control">
                 </div>
                 <br>
               </div>
               <br>
             </div>
-            <button type="submit" class="btn btn-primary me-2" id="enviar_categoria">Guardar Datos</button>
+            <button type="button" class="btn btn-primary me-2" id="enviar_categoria">Guardar Datos</button>
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script src="../../misArchivos/js/back/guardaCategoria.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+
 
 
 

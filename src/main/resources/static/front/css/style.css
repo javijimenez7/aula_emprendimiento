@@ -2350,6 +2350,10 @@ body{
 .footer-address {
     padding-right: 80px;
 }
+
+.footer-menu p{
+    color:white;
+}
 .footer-address li:hover {
     color: #595aff;
 }

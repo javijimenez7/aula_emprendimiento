@@ -20,7 +20,7 @@ public class Categoria {
 
     private String titulo;
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
     private List<Galeria> imagenes;
 
 

@@ -19,6 +19,7 @@ public class Galeria {
     @ManyToOne
     @JoinColumn(name = "fk_categoria") @EqualsAndHashCode.Exclude @ToString.Exclude
     private Categoria categoria;
+    
     private String titulo;
 
     public Galeria(String substring, Categoria catt, String tit) {
