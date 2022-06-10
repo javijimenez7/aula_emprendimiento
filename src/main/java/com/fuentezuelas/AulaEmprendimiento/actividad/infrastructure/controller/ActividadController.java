@@ -72,6 +72,7 @@ public class ActividadController {
             act.setArchivo(archivo);
             act.setDescripcion(descripcion);
             act.setFechaCreacion(LocalDate.now());
+            act.setNombre(nombre);
         } else {
             act.setArchivo(archivo);
             act.setDescripcion(descripcion);

@@ -33,7 +33,9 @@ $(function ($) {
                         principal : content
                     },
                     success : function(data){
-                        alert("Datos modificados");
+                        $("#modalHora").find(".modal-body").children().remove();
+                        $("#modalHora").find(".modal-body").append("<h2>TEXTO GUARDADO</h2>");
+                        $("#modalHora").modal("show");
                     },
 
         })
