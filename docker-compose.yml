@@ -1,26 +1,35 @@
 version: '3'
-
 services:
-  mysql:
-    image: mysql:5.7.28
-    ports:
-      - 3306:3306
+  basedatos:
+    image: mysql
+    container_name: basedatos
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=aulaEmprendimiento
-      - MYSQL_USER=javi
-      - MYSQL_PASSWORD=9801
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: 'aulaEmprendimiento'
     ports:
-      - 8082:80
-    environment:
-      - PMA_HOST=mysql
+      - '3306:3306'
+  aplicacion:
+    image: javi9801/aulaemprendimiento:1
+    container_name: aplicacion
     depends_on:
-      - mysql
-
-volumes:
-  mysql_data:
+      - basedatos
+    environment:
+      - spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+      - spring.datasource.url=jdbc:mysql://basedatos:3306/aulaEmprendimiento
+      - spring.datasource.password=root
+      - server.port=8081
+      - spring.jpa.hibernate.ddl-auto=update
+    ports:
+      - "8081:8081"
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: pma
+    links:
+      - basedatos
+    environment:
+      PMA_HOST: basedatos
+      PMA_PORT: 3306
+    ports:
+      - "82:80"

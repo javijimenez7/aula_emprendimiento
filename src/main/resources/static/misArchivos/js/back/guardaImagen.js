@@ -37,7 +37,7 @@ $(function ($) {
 
                  $("#modalHora").find(".modal-body").children().remove();
                  $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
-                 $("#modalHora").find(".modal-body").append("<p>Curso modificado correctamente</p>");
+                 $("#modalHora").find(".modal-body").append("<p>Imagen modificada correctamente</p>");
                  $("#modalHora").modal("show");
 
 

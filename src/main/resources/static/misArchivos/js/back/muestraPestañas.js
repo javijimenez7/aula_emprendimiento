@@ -95,7 +95,10 @@ $(function ($) {
                                               principal : content
                                           },
                                           success : function(data){
-                                              alert("Datos modificados");
+                                              $("#modalHora").find(".modal-body").children().remove();
+                                              $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
+                                              $("#modalHora").find(".modal-body").append("<p>Contenido guardado</p>");
+                                              $("#modalHora").modal("show");
                                           },
 
                               })
@@ -126,73 +129,22 @@ $(function ($) {
                                 toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | forecolor backcolor|  bullist numlist outdent indent | removeformat | help'
                          });
 
-                $("#actividad_archivo").change(function(){
+              $("#actividad_archivo").change(function(){
                     $("#contenedor_imagen_actividad").find("img").attr("src", "../../misArchivos/img/"+ $("#actividad_archivo").val().substr(12));
-                })
-
-                 $("#enviar_actividad").click(function(ev){
-                     ev.preventDefault();
-                      var content = tinymce.get('actividad_descripcion').getContent();
-
-                     $.ajax("guardaActividad", {
-                         type:"post",
-                         data : {
-                             idActividad : $("#actividad_id").text(),
-                             nombre : $("#actividad_nombre").val(),
-                             descripcion : content,
-                             archivo : $("#contenedor_imagen_actividad").find("img").attr("src").substr(22)
-                         },
-                         success : function(data){
-
-                             $("#modalHora").find(".modal-body").children().remove();
-                             $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
-                             $("#modalHora").find(".modal-body").append("<p>Actividad guardada correctamente</p>");
-                             $("#modalHora").modal("show");
-                             $(".main-panel").remove();
-                             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                             $(".main-panel").load("/listado_actividades", function(){
-
-                             });
-
-                         },
-                     })
-                 })
               })
+
+
+          })
      })
 
     // funcion que abre mediante ajax la plantilla de la categoria y crea una nueva
     $("#nueva_categoria").click(function(ev){
-             $(".main-panel").remove();
-             $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-             $(".main-panel").load("/cargaPlantillaCategoria/0", function(){
-
-                 $("#enviar_categoria").click(function(ev){
-                     ev.preventDefault();
+         $(".main-panel").remove();
+         $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+         $(".main-panel").load("/cargaPlantillaCategoria/0", function(){
 
 
-                     $.ajax("guardaCategoria", {
-                         type:"post",
-                         data : {
-                             idCategoria : $("#categoria_id").text(),
-                             titulo : $("#categoria_titulo").val(),
-
-                         },
-                         success : function(data){
-
-                            $("#modalHora").find(".modal-body").children().remove();
-                            $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
-                            $("#modalHora").find(".modal-body").append("<p>Categoria guardada correctamente</p>");
-                            $("#modalHora").modal("show");
-                            $(".main-panel").remove();
-                            $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                            $(".main-panel").load("/listado_categorias", function(){
-
-                            });
-
-                         },
-                     })
-                 })
-              })
+         })
      })
 
     // funcion que abre mediante ajax la plantilla de la imagen y crea una nueva
@@ -202,73 +154,21 @@ $(function ($) {
                   $(".main-panel").load("/cargaPlantillaImagen/0", function(){
 
 
-                    $("#imagen_archivo").change(function(){
-                        $("#contenedor_imagen_img").find("img").attr("src", "../../misArchivos/img/"+ $("#imagen_archivo").val().substr(12));
-                    })
+                  $("#imagen_archivo").change(function(){
+                    $("#contenedor_imagen_img").find("img").attr("src", "../../misArchivos/img/"+ $("#imagen_archivo").val().substr(12));
+                  })
+             })
 
-                     $("#enviar_imagen").click(function(ev){
-                         ev.preventDefault();
-
-
-                         $.ajax("guardaImagen", {
-                             type:"post",
-                             data : {
-                                 idImagen : $("#imagen_id").text(),
-                                 categoria : $("#imagen_categoria").val(),
-                                 titulo : $("#imagen_titulo").val(),
-                                 archivo : $("#contenedor_imagen_img").find("img").attr("src").substr(22)
-                             },
-                             success : function(data){
-
-                                $("#modalHora").find(".modal-body").children().remove();
-                                $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
-                                $("#modalHora").find(".modal-body").append("<p>Imagen guardada correctamente</p>");
-                                $("#modalHora").modal("show");
-                                $(".main-panel").remove();
-                                $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                                $(".main-panel").load("/galeria", function(){
-
-                                });
-
-                             },
-                         })
-                    })
-                 })
-
-                })
+        })
 
     // funcion que abre mediante ajax la plantilla del curso y crea uno nuevo
     $("#nuevo_curso").click(function(ev){
-                  $(".main-panel").remove();
-                  $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                  $(".main-panel").load("/cargaPlantillaCurso/0", function(){
-
-                      $("#enviar_curso").click(function(ev){
-                          ev.preventDefault();
+          $(".main-panel").remove();
+          $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+          $(".main-panel").load("/cargaPlantillaCurso/0", function(){
 
 
-                          $.ajax("guardaCurso", {
-                              type:"post",
-                              data : {
-                                  idCurso : $("#curso_id").text(),
-                                  descripcion : $("#curso_descripcion").val(),
-                                },
-                              success : function(data){
-
-                                 $("#modalHora").find(".modal-body").children().remove();
-                                 $("#modalHora").find(".modal-body").append("<h2>AVISO DEL SISTEMA</h2>");
-                                 $("#modalHora").find(".modal-body").append("<p>Curso guardado correctamente</p>");
-                                 $("#modalHora").modal("show");
-                                 $(".main-panel").remove();
-                                 $("<div></div>").addClass("main-panel").appendTo("#contenedor");
-                                 $(".main-panel").load("/listado_cursos", function(){
-
-                                 });
-
-                              },
-                          })
-                      })
-                  })
+          })
     })
 
     // funcion que abre mediante ajax la plantilla del usuario y lo modifica
@@ -327,6 +227,6 @@ $(function ($) {
                      })
                      }
                  })
-              })
+             })
     })
 })
