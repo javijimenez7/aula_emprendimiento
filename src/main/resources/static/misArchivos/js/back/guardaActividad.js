@@ -21,7 +21,7 @@ $(function ($) {
    })
 
      $("#enviar_actividad").click(function(ev){
-         ev.preventDefault();
+         // todo : comprobar errores
           var content = tinymce.get('actividad_descripcion').getContent();
 
          $.ajax("guardaActividad", {

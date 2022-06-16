@@ -23,7 +23,7 @@ $(function ($) {
 
      $("#enviar_imagen").click(function(ev){
          ev.preventDefault();
-
+         // todo : comprobar errores
 
          $.ajax("guardaImagen", {
              type:"post",

@@ -23,9 +23,7 @@ $(function ($) {
 
 $("#enviar_categoria").click(function(ev){
                  ev.preventDefault();
-                 alert(validator.errorList.length);
-
-
+                 //todo: comprobar errores
                  $.ajax("guardaCategoria", {
                      type:"post",
                      data : {
