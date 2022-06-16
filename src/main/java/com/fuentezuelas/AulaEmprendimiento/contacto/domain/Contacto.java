@@ -16,18 +16,8 @@ import javax.persistence.*;
 public class Contacto {
 
     @Id
-    @Column(name = "id_contacto", length = 32)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqCO")
-    @GenericGenerator(
-            name = "seqCO",
-            strategy = "com.fuentezuelas.AulaEmprendimiento.StringPrefixedSequenceIdGenerator",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
-                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "CON"),
-                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%02d")
-            }
-    )
-    private String id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer id;
 
     @NotNull
     private String nombre;
@@ -40,14 +30,20 @@ public class Contacto {
 
     private String asunto;
 
-    private String mensaje;
-
     private String EmpresaNombre;
 
-    private Boolean esEmpresa;
 
     @ManyToOne
     @JoinColumn(name = "fk_curso")
     private Curso curso;
 
+    public Contacto(String nombre, String apellidos, String correo, String telefono, String asunto, String empresa, Curso curso) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.asunto = asunto;
+        this.EmpresaNombre = empresa;
+        this.curso = curso;
+    }
 }

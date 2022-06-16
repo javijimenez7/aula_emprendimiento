@@ -12,6 +12,16 @@ $(function ($) {
         });
     })
 
+    $("#btnContactos").click(function(ev){
+        ev.preventDefault();
+        $(".main-panel").remove();
+        $("<div></div>").addClass("main-panel").appendTo("#contenedor");
+        $(".main-panel").load("/contactos", function(){
+
+
+        });
+    })
+
     // funcion que muestra el contenido de la pestaña "Actividades" en el back
     $("#btnActividades").click(function(ev){
             ev.preventDefault();
