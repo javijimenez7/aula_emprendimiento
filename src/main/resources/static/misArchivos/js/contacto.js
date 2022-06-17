@@ -40,6 +40,8 @@ $(function ($) {
                 contacto : JSON.stringify(array)
             },
             success : function(data){
+
+                $("#empresa").val("");
                 $("#btn_modal").trigger("click");
 
 
