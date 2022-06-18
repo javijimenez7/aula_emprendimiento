@@ -23,7 +23,7 @@ $(function ($) {
 
 $("#enviar_categoria").click(function(ev){
                  ev.preventDefault();
-                 if(validator.errorList.length==0){
+                 if(validator.errorList.length==0 && $("#categoria_titulo").val() != ""){
                      $.ajax("guardaCategoria", {
                          type:"post",
                          data : {

@@ -21,7 +21,7 @@ $(function ($) {
    })
 
      $("#enviar_actividad").click(function(ev){
-         if(validator.errorList.length==0){
+         if(validator.errorList.length==0 && $("#actividad_nombre").val() != ""){
              var content = tinymce.get('actividad_descripcion').getContent();
 
              $.ajax("guardaActividad", {

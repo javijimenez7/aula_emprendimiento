@@ -22,7 +22,7 @@ $(function ($) {
 
 
      $("#enviar_imagen").click(function(ev){
-         if(validator.errorList.length==0){
+         if(validator.errorList.length==0 && $("#imagen_titulo").val() != ""){
 
              $.ajax("guardaImagen", {
                  type:"post",

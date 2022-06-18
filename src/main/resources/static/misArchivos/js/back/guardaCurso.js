@@ -22,7 +22,7 @@ $(function ($) {
 
 
     $("#enviar_curso").click(function(ev){
-         if(validator.errorList.length==0){
+         if(validator.errorList.length==0 && $("#curso_descripcion").val()!=""){
              ev.preventDefault();
 
              $.ajax("guardaCurso", {
