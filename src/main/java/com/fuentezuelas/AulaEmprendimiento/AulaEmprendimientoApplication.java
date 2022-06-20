@@ -1,10 +1,13 @@
 package com.fuentezuelas.AulaEmprendimiento;
 
+import com.fuentezuelas.AulaEmprendimiento.ficheros.StorageService;
 import com.fuentezuelas.AulaEmprendimiento.usuario.domain.Usuario;
 import com.fuentezuelas.AulaEmprendimiento.usuario.infrastructure.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import javax.annotation.PreDestroy;
 
@@ -15,7 +18,13 @@ public class AulaEmprendimientoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AulaEmprendimientoApplication.class, args);
 	}
+	@Bean
+	CommandLineRunner init(StorageService storageService) {
+		return (args) -> {
 
+			storageService.init();
+		};
+	}
 
 		/*
 		 @PreDestroy

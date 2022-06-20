@@ -1,31 +1,41 @@
 package com.fuentezuelas.AulaEmprendimiento.galeria.infrastructure.controller;
 
 
-import ch.qos.logback.classic.joran.action.InsertFromJNDIAction;
-import com.fuentezuelas.AulaEmprendimiento.actividad.domain.Actividad;
-import com.fuentezuelas.AulaEmprendimiento.categoria.domain.Categoria;
 import com.fuentezuelas.AulaEmprendimiento.categoria.infrastructure.repository.CategoriaRepository;
+import com.fuentezuelas.AulaEmprendimiento.ficheros.FileSystemStorageService;
 import com.fuentezuelas.AulaEmprendimiento.galeria.domain.Galeria;
 import com.fuentezuelas.AulaEmprendimiento.galeria.infrastructure.repository.GaleriaRepository;
-import com.fuentezuelas.AulaEmprendimiento.mail.domain.Mail;
+import com.fuentezuelas.AulaEmprendimiento.principal.infrastructure.repository.PrincipalRepository;
+import com.fuentezuelas.AulaEmprendimiento.usuario.infrastructure.repository.UsuarioRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.time.LocalDate;
-import java.util.List;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import static java.lang.Integer.parseInt;
 
 @RestController
+@AllArgsConstructor
 public class GaleriaController {
-
     @Autowired
     GaleriaRepository galeriaRepository;
     @Autowired
     CategoriaRepository categoriaRepository;
 
+    @Autowired
+    PrincipalRepository principalRepository;
+
+    @Autowired
+    UsuarioRepository usuarioRepository;
+
+    private final FileSystemStorageService storageService;
+
+    @Autowired
+    public GaleriaController(FileSystemStorageService storageService) {
+        this.storageService = storageService;
+    }
     /**
      * Endpoint que carga la plantilla con el listado de imagenes en el backend
      * @return ModelAndView
@@ -78,24 +88,36 @@ public class GaleriaController {
     /**
      * Endpoint que guarda una imagen en la base de datos
      * @param id
-     * @param archivo
+     * @param file
      * @param categoria
      * @param titulo
      * */
     @PostMapping(value = "guardaImagen")
-    public void guardaImagen(@RequestParam(required = false, value = "idImagen") Integer id, @RequestParam(required = false, value = "titulo") String titulo, @RequestParam(required = false, value = "categoria") String categoria, @RequestParam(required = false, value = "archivo") String archivo) {
+    public ModelAndView guardaImagen(@RequestParam(required = false, value = "imagen_id_b") Integer id, @RequestParam(required = false, value = "imagen_titulo") String titulo, @RequestParam(required = false, value = "imagen_categoria") String categoria, @RequestParam("imagen_archivo") MultipartFile file,
+                             RedirectAttributes redirectAttributes) {
+
         Galeria img = new Galeria();
-        if (galeriaRepository.findById(id).isPresent()) {
-            img = galeriaRepository.findById(id).orElseThrow();
-            img.setArchivo(archivo);
-            img.setTitulo(titulo);
-            img.setCategoria(categoriaRepository.findById(parseInt(categoria)).get());
-        } else {
-            img.setArchivo(archivo);
-            img.setTitulo(titulo);
-            img.setCategoria(categoriaRepository.findById(parseInt(categoria)).get());
+        storageService.store(file);
+        if(!id.equals(null)) {
+            if (galeriaRepository.findById(id).isPresent()) {
+                img = galeriaRepository.findById(id).orElseThrow();
+                img.setArchivo(file.getOriginalFilename());
+                img.setTitulo(titulo);
+                img.setCategoria(categoriaRepository.findById(parseInt(categoria)).get());
+            } else {
+                img.setArchivo(file.getOriginalFilename());
+                img.setTitulo(titulo);
+                img.setCategoria(categoriaRepository.findById(parseInt(categoria)).get());
+            }
+            galeriaRepository.save(img);
         }
-        galeriaRepository.save(img);
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("plantillaBack/admin");
+            modelAndView.addObject("principal", principalRepository.findById(1).get().getDescripcion());
+            modelAndView.addObject("usuario", usuarioRepository.findById(1).get());
+            redirectAttributes.addFlashAttribute("message",
+                "You successfully uploaded " + file.getOriginalFilename() + "!");
+        return modelAndView;
 
     }
 
@@ -108,4 +130,5 @@ public class GaleriaController {
         Galeria act = galeriaRepository.findById(id).orElseThrow();
         galeriaRepository.delete(act);
     }
+
 }

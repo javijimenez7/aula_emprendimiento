@@ -1,5 +1,6 @@
 package com.fuentezuelas.AulaEmprendimiento.config;
 
+import com.fuentezuelas.AulaEmprendimiento.ficheros.StorageProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -26,4 +27,21 @@ public class Config {
 
         return mailSender;
     }
+
+    @Bean
+    public StorageProperties StorageProperties() {
+
+        StorageProperties storageProperties = new StorageProperties();
+
+
+        /**
+         * Folder location for storing files
+         */
+        storageProperties.setLocation("src\\main\\resources\\static\\misArchivos\\img");
+
+        return storageProperties;
+
+    }
+
+
 }
