@@ -24,6 +24,10 @@ public class UsuarioController {
     @Autowired
     UsuarioRepository usuarioRepository;
 
+    /**
+     * Endpoint que carga el backend y comprueba si esta logueado o no
+     * @return ModelAndView
+     */
     @GetMapping(value = "/admin")
     public ModelAndView recogeDatos(){
         ModelAndView modelAndView = new ModelAndView();
@@ -41,6 +45,12 @@ public class UsuarioController {
         return modelAndView;
     }
 
+    /**
+     * Endpoint que comprueba si un usuario es correcto
+     * @param usuario
+     * @param password
+     * @return ResponseEntity<Void>
+     */
     @PostMapping(value = "compruebaUsuario")
     public ResponseEntity<Void> compruebaUsuario(@RequestParam(required = false, value = "usuario") String usuario, @RequestParam(required = false, value = "password") String password) {
 
@@ -57,6 +67,10 @@ public class UsuarioController {
         }
     }
 
+    /**
+     * Endpoint que cierra sesion
+     * @return ResponseEntity<Void>
+     */
     @PostMapping(value = "cierrasesion")
     public ResponseEntity<Void> logout() {
 
@@ -77,6 +91,11 @@ public class UsuarioController {
         return modelAndView;
     }
 
+    /**
+     * Endpoint que se encarga de cargar la plantilla para modificar un usuario
+     * @return ModelAndView
+     */
+
     @GetMapping(value = "/cargaPlantillaUsuario")
     public ModelAndView cargaPlantillaImagen() {
         ModelAndView modelAndView = new ModelAndView();
@@ -88,6 +107,12 @@ public class UsuarioController {
 
     }
 
+    /**
+     * Endpoint que guarda un usuario
+     * @param id
+     * @param usuario
+     * @param password
+     * */
     @PostMapping(value = "guardaUsuario")
     public void guardaActividad(@RequestParam(required = false, value = "idUsuario") Integer id, @RequestParam(required = false, value = "usuario") String usuario, @RequestParam(required = false, value = "password") String password) {
         Usuario us = usuarioRepository.findById(id).orElseThrow();

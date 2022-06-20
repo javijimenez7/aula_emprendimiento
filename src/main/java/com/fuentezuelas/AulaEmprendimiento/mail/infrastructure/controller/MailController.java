@@ -23,6 +23,10 @@ public class MailController {
 
 
 
+    /**
+     * Endpoint que carga la plantilla con el listado de peticiones para enviarle un correo en el backend
+     * @return ModelAndView
+     */
     @GetMapping(value = "/mails")
     public ModelAndView mails(){
         ModelAndView modelAndView = new ModelAndView();
@@ -34,6 +38,10 @@ public class MailController {
 
     }
 
+    /**
+     * Endpoint que carga la plantilla para enviar el correo
+     * @return ModelAndView
+     */
     @GetMapping(value = "/cargaPlantillaCorreo/{id}")
     public ModelAndView cargaPlantilla(@PathVariable Integer id){
         ModelAndView modelAndView = new ModelAndView();
@@ -43,6 +51,15 @@ public class MailController {
 
         return modelAndView;
     }
+
+    /**
+     * Endpoint que manda el correo
+     * @param id
+     * @param body
+     * @param email
+     * @param subject
+     * @return ModelAndView
+     */
     @PostMapping(value = "enviaCorreo")
     public void enviaCorreo(@RequestParam(required = false, value = "idEmail") Integer id, @RequestParam(required = false, value = "body") String body, @RequestParam(required = false, value = "subject") String subject, @RequestParam(required = false, value = "email") String email){
 

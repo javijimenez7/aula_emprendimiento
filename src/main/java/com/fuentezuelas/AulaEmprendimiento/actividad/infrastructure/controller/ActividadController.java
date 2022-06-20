@@ -14,6 +14,12 @@ public class ActividadController {
     @Autowired
     ActividadRepository actividadRepository;
 
+
+    /**
+     * Endpoint donde se devuelve la plantilla con el listado de actividades en el backend
+     *
+     * @return ModelAndView
+     */
     @GetMapping(value = "/listado_actividades")
     public ModelAndView actividades() {
         ModelAndView modelAndView = new ModelAndView();
@@ -25,6 +31,11 @@ public class ActividadController {
 
     }
 
+    /**
+     * Endpoint donde se devuelve la plantilla con el listado de actividades en el frontend
+     *
+     * @return ModelAndView
+     */
     @GetMapping(value = "/actividades")
     public ModelAndView listado_actividades() {
         ModelAndView modelAndView = new ModelAndView();
@@ -36,6 +47,11 @@ public class ActividadController {
 
     }
 
+    /**
+     * Endpoint donde se devuelve la plantilla con el detalle de una actividad en el backend
+     * @param id
+     * @return ModelAndView
+     */
     @GetMapping(value = "/detalle_actividad/{id}")
     public ModelAndView detalle_actividad(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -47,6 +63,11 @@ public class ActividadController {
 
     }
 
+    /**
+     * Endpoint donde se devuelve la plantilla con el detalle de una actividad en el frontend
+     * @param id
+     * @return ModelAndView
+     */
 
     @GetMapping(value = "/cargaPlantillaActividad/{id}")
     public ModelAndView cargaPlantilla(@PathVariable Integer id) {
@@ -64,6 +85,14 @@ public class ActividadController {
 
     }
 
+    /**
+     * Endpoint que guarda una actividad en la base de datos
+     * @param id
+     * @param archivo
+     * @param descripcion
+     * @param nombre
+     *
+     */
     @PostMapping(value = "guardaActividad")
     public void guardaActividad(@RequestParam(required = false, value = "idActividad") Integer id, @RequestParam(required = false, value = "nombre") String nombre, @RequestParam(required = false, value = "archivo") String archivo, @RequestParam(required = false, value = "descripcion") String descripcion) {
         Actividad act = new Actividad();
@@ -83,9 +112,14 @@ public class ActividadController {
 
     }
 
+    /**
+     * Endpoint que elimina una actividad de la base de datos
+     * @param id
+     *
+     */
 
     @PostMapping(value = "eliminaActividad")
-    public void guardaActividad(@RequestParam(required = false, value = "idActividad") Integer id) {
+    public void eliminaActividad(@RequestParam(required = false, value = "idActividad") Integer id) {
         Actividad act = actividadRepository.findById(id).orElseThrow();
         actividadRepository.delete(act);
     }

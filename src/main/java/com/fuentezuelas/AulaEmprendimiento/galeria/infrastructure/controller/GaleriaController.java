@@ -26,6 +26,10 @@ public class GaleriaController {
     @Autowired
     CategoriaRepository categoriaRepository;
 
+    /**
+     * Endpoint que carga la plantilla con el listado de imagenes en el backend
+     * @return ModelAndView
+     */
     @GetMapping(value = "/galeria")
     public ModelAndView mails(){
         ModelAndView modelAndView = new ModelAndView();
@@ -34,6 +38,10 @@ public class GaleriaController {
         return modelAndView;
     }
 
+    /**
+     * Endpoint que carga la plantilla con el listado de imagenes en el frontend
+     * @return ModelAndView
+     */
     @GetMapping(value = "/portfolio")
     public ModelAndView imagenes(){
         ModelAndView modelAndView = new ModelAndView();
@@ -43,6 +51,11 @@ public class GaleriaController {
         return modelAndView;
     }
 
+    /**
+     * Endpoint que carga la plantilla del detalle de una imagen en el backend
+     * @param id
+     * @return ModelAndView
+     */
     @GetMapping(value = "/cargaPlantillaImagen/{id}")
     public ModelAndView cargaPlantillaImagen(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -62,8 +75,15 @@ public class GaleriaController {
     }
 
 
+    /**
+     * Endpoint que guarda una imagen en la base de datos
+     * @param id
+     * @param archivo
+     * @param categoria
+     * @param titulo
+     * */
     @PostMapping(value = "guardaImagen")
-    public void guardaActividad(@RequestParam(required = false, value = "idImagen") Integer id, @RequestParam(required = false, value = "titulo") String titulo, @RequestParam(required = false, value = "categoria") String categoria, @RequestParam(required = false, value = "archivo") String archivo) {
+    public void guardaImagen(@RequestParam(required = false, value = "idImagen") Integer id, @RequestParam(required = false, value = "titulo") String titulo, @RequestParam(required = false, value = "categoria") String categoria, @RequestParam(required = false, value = "archivo") String archivo) {
         Galeria img = new Galeria();
         if (galeriaRepository.findById(id).isPresent()) {
             img = galeriaRepository.findById(id).orElseThrow();
@@ -79,8 +99,12 @@ public class GaleriaController {
 
     }
 
+    /**
+     * Endpoint que elimina una imagen de la base de datos
+     * @param id
+     */
     @PostMapping(value = "eliminaImagen")
-    public void guardaActividad(@RequestParam(required = false, value = "idImagen") Integer id) {
+    public void eliminaImagen(@RequestParam(required = false, value = "idImagen") Integer id) {
         Galeria act = galeriaRepository.findById(id).orElseThrow();
         galeriaRepository.delete(act);
     }

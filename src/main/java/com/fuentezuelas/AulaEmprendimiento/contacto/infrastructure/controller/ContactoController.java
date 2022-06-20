@@ -32,6 +32,10 @@ public class ContactoController {
     @Autowired
     MailSenderService mailSenderService;
 
+    /**
+     * Endpoint que carga la plantilla del formulario de contacto en el frontend
+     * @return ModelAndView
+     */
     @GetMapping("/contactanos")
     public ModelAndView muestraPagina(){
         ModelAndView modelAndView = new ModelAndView();
@@ -40,6 +44,10 @@ public class ContactoController {
         return modelAndView;
     }
 
+    /**
+     * Endpoint que envia el formulario rellenado en el frontend
+     * @param contacto
+     */
     @PostMapping(value = "enviaformulario")
     public ResponseEntity enviaFormulario(@RequestParam(required = false, value = "contacto") List<String> contacto){
         String cont;
@@ -60,6 +68,10 @@ public class ContactoController {
         return ResponseEntity.ok("ENVIADO");
     }
 
+    /**
+     * Endpoint que carga la plantilla del listado de contactos en el backend
+     * @return ModelAndView
+     */
     @GetMapping(value = "/contactos")
     public ModelAndView contactos(){
         ModelAndView modelAndView = new ModelAndView();

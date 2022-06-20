@@ -12,6 +12,10 @@ public class CursoController {
     @Autowired
     CursoRepository cursoRepository;
 
+    /**
+     * Endpoint que carga la plantilla con el listado de cursos en el backend
+     * @return ModelAndView
+     */
     @GetMapping(value = "/listado_cursos")
     public ModelAndView cursos() {
         ModelAndView modelAndView = new ModelAndView();
@@ -22,6 +26,11 @@ public class CursoController {
         return modelAndView;
 
     }
+
+    /**
+     * Endpoint que carga la plantilla con el detalle de cada curso en el backend
+     * @return ModelAndView
+     */
     @GetMapping(value = "/cargaPlantillaCurso/{id}")
     public ModelAndView cargaPlantilla(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -39,6 +48,12 @@ public class CursoController {
 
     }
 
+    /**
+     * Endpoint que guarda un curso en la base de datos
+     * @param id
+     * @param descripcion
+
+     */
     @PostMapping(value = "guardaCurso")
     public void guardaCurso(@RequestParam(required = false, value = "idCurso") Integer id, @RequestParam(required = false, value = "descripcion") String descripcion) {
         Curso cur = new Curso();
@@ -54,8 +69,12 @@ public class CursoController {
 
     }
 
+    /**
+     * Endpoint que elimina un curso de la base de datos
+     * @param id
+     */
     @PostMapping(value = "eliminaCurso")
-    public void guardaActividad(@RequestParam(required = false, value = "idCurso") Integer id) {
+    public void eliminaCurso(@RequestParam(required = false, value = "idCurso") Integer id) {
         Curso act = cursoRepository.findById(id).orElseThrow();
         cursoRepository.delete(act);
     }

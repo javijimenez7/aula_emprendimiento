@@ -19,6 +19,10 @@ public class CategoriaController {
     @Autowired
     GaleriaRepository galeriaRepository;
 
+    /**
+     * Endpoint que carga la plantilla del listado de categorias en el backend
+     * @return ModelAndView
+     */
     @GetMapping(value = "/listado_categorias")
     public ModelAndView mails(){
         ModelAndView modelAndView = new ModelAndView();
@@ -27,6 +31,11 @@ public class CategoriaController {
         return modelAndView;
     }
 
+    /**
+     * Endpoint que carga la plantilla del detalle de una categoria en el backend
+     * @param id
+     * @return ModelAndView
+     */
     @GetMapping(value = "/cargaPlantillaCategoria/{id}")
     public ModelAndView cargaPlantillaImagen(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -43,6 +52,13 @@ public class CategoriaController {
 
     }
 
+
+    /**
+     * Endpoint que guarda una categoria en la base de datos
+     * @param id
+     * @param titulo
+     *
+     */
     @PostMapping(value = "guardaCategoria")
     public void guardaActividad(@RequestParam(required = false, value = "idCategoria") Integer id, @RequestParam(required = false, value = "titulo") String titulo) {
         Categoria img = new Categoria();
@@ -56,6 +72,12 @@ public class CategoriaController {
 
     }
 
+    /**
+     * Endpoint que elimina una categoria de la base de datos
+     * @param id
+     * @return ResponseEntity<String>
+     *
+     */
     @PostMapping(value = "eliminaCategoria")
     public ResponseEntity<String> guardaActividad(@RequestParam(required = false, value = "idCategoria") Integer id) throws Exception {
         Categoria act = categoriaRepository.findById(id).orElseThrow();

@@ -31,6 +31,10 @@ public class PrincipalController {
     @Value("${carpetaimagenes}")
     String carpeta;
 
+    /**
+     * Endpoint que carga la plantilla principal en el frontend
+     * @return ModelAndView
+     */
     @GetMapping("/")
     public ModelAndView muestraPagina(){
         ModelAndView modelAndView = new ModelAndView();
@@ -46,6 +50,11 @@ public class PrincipalController {
         return modelAndView;
     }
 
+    /**
+     * Endpoint que se encarga de guardar el contenido de la pestaña principal en la base de datos
+     * @param principal
+     * @return ModelAndView
+     */
     @GetMapping(value = "/procesaDatosPrincipal")
     public void procesaDatos(@RequestParam(required = false, value = "principal") String principal){
 
@@ -63,6 +72,10 @@ public class PrincipalController {
     }
 
 
+    /**
+     * Endpoint que carga la plantilla con el texto a modificar en el backend
+     * @return ModelAndView
+     */
     @GetMapping(value = "/principal")
     public ModelAndView principal(){
         ModelAndView modelAndView = new ModelAndView();
