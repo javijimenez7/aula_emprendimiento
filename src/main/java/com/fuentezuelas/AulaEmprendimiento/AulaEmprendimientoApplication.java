@@ -18,13 +18,7 @@ public class AulaEmprendimientoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AulaEmprendimientoApplication.class, args);
 	}
-	@Bean
-	CommandLineRunner init(StorageService storageService) {
-		return (args) -> {
 
-			storageService.init();
-		};
-	}
 
 		/*
 		 @PreDestroy

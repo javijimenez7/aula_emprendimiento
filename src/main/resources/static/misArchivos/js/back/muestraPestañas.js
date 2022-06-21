@@ -122,6 +122,7 @@ $(function ($) {
              $(".main-panel").remove();
              $("<div></div>").addClass("main-panel").appendTo("#contenedor");
              $(".main-panel").load("/cargaPlantillaActividad/0", function(){
+                 $("#contenedor_imagen_actividad").css("display","none");
               tinymce.init({
                                 selector: '#actividad_descripcion',
                                 width: "100%",

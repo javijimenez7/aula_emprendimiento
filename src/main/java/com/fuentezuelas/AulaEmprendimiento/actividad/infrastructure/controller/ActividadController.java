@@ -115,7 +115,7 @@ public class ActividadController {
         }
     }
 
-    @PostMapping(value = "modificaCategoria")
+    @PostMapping(value = "modificaActividad")
     public void modificaImagen(@RequestParam(required = false, value = "idActividad") Integer id, @RequestParam(required = false, value = "nombre") String nombre, @RequestParam(required = false, value = "descripcion") String descripcion) {
         Actividad act = new Actividad();
         if (!id.equals(null)) {
