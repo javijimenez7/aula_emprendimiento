@@ -37,7 +37,7 @@ public class Config {
         /**
          * Folder location for storing files
          */
-        storageProperties.setLocation("src\\main\\resources\\static\\misArchivos\\img");
+        storageProperties.setLocation("src/main/resources/static/misArchivos/img");
 
         return storageProperties;
 
