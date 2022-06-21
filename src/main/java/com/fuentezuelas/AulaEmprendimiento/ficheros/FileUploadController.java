@@ -44,7 +44,7 @@ public class FileUploadController {
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @PostMapping(value= "uploadFiles")
+    @PostMapping(value= "subirImagen", consumes = { "multipart/form-data" })
     public String handleFileUpload(@RequestParam("imagen_archivo") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 

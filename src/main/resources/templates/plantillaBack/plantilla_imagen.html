@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Imagen</h4>
-                    <form method="POST" enctype="multipart/form-data" action="guardaImagen">
+                    <form id="formulario_imagen" method="POST" enctype="multipart/form-data" action="guardaImagen">
                         <div class="form-group">
 
                             <div id="imagen_id" name="imagen_id" style="display:none" th:text="${id}"></div>
@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class=" col-md-4">
                                     <label>Titulo Imagen</label>
-                                    <input th:value="${imagen.titulo}" name="imagen_titulo" th:id="imagen_titulo"
+                                    <input th:value="${imagen.titulo}" name="imagen_titulo" id="imagen_titulo"
                                            th:class="form-control">
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <div class="col-md-8">
+                                    <div id="contenedor_archivo" class="col-md-8">
 
                                         <div th:if="${message}">
                                             <h2 th:text="${message}"/>
@@ -47,12 +47,10 @@
                                         <div>
                                             <table>
                                                 <tr>
-                                                    <td>File to upload:</td>
-                                                    <td><input type="file" name="imagen_archivo"/></td>
+                                                    <td>Archivo a subir:</td>
+                                                    <td><input type="file" id="imagen_archivo" name="imagen_archivo"/></td>
                                                 </tr>
                                                 <tr>
-                                                    <td></td>
-                                                    <td><input type="submit" value="Upload"/></td>
                                                 </tr>
                                             </table>
                                         </div>

@@ -163,10 +163,10 @@ $(function ($) {
                   $("<div></div>").addClass("main-panel").appendTo("#contenedor");
                   $(".main-panel").load("/cargaPlantillaImagen/0", function(){
 
-
-                  $("#imagen_archivo").change(function(){
-                    $("#contenedor_imagen_img").find("img").attr("src", "../../misArchivos/img/"+ $("#imagen_archivo").val().substr(12));
-                  })
+                  $("#contenedor_imagen_img").css("display","none");
+//                  $("#imagen_archivo").change(function(){
+//                    $("#contenedor_imagen_img").find("img").attr("src", "../../misArchivos/img/"+ $("#imagen_archivo").val().substr(12));
+//                  })
              })
 
         })

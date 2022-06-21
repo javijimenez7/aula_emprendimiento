@@ -93,31 +93,38 @@ public class GaleriaController {
      * @param titulo
      * */
     @PostMapping(value = "guardaImagen")
-    public ModelAndView guardaImagen(@RequestParam(required = false, value = "imagen_id_b") Integer id, @RequestParam(required = false, value = "imagen_titulo") String titulo, @RequestParam(required = false, value = "imagen_categoria") String categoria, @RequestParam("imagen_archivo") MultipartFile file,
-                             RedirectAttributes redirectAttributes) {
-
+    public void guardaImagen(@RequestParam(required = false, value = "idImagen") Integer id, @RequestParam(required = false, value = "titulo") String titulo, @RequestParam(required = false, value = "categoria") String categoria, @RequestParam("imagen_archivo") String file) {
         Galeria img = new Galeria();
-        storageService.store(file);
         if(!id.equals(null)) {
             if (galeriaRepository.findById(id).isPresent()) {
                 img = galeriaRepository.findById(id).orElseThrow();
-                img.setArchivo(file.getOriginalFilename());
                 img.setTitulo(titulo);
                 img.setCategoria(categoriaRepository.findById(parseInt(categoria)).get());
             } else {
-                img.setArchivo(file.getOriginalFilename());
+
+                img.setArchivo(file);
                 img.setTitulo(titulo);
                 img.setCategoria(categoriaRepository.findById(parseInt(categoria)).get());
             }
             galeriaRepository.save(img);
         }
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("plantillaBack/admin");
-            modelAndView.addObject("principal", principalRepository.findById(1).get().getDescripcion());
-            modelAndView.addObject("usuario", usuarioRepository.findById(1).get());
-            redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
-        return modelAndView;
+
+    }
+
+    @PostMapping(value = "modificaImagen")
+    public void modificaImagen(@RequestParam(required = false, value = "idImagen") Integer id, @RequestParam(required = false, value = "titulo") String titulo, @RequestParam(required = false, value = "categoria") String categoria) {
+        Galeria img = new Galeria();
+        if(!id.equals(null)) {
+            if (galeriaRepository.findById(id).isPresent()) {
+                img = galeriaRepository.findById(id).orElseThrow();
+                img.setTitulo(titulo);
+                img.setCategoria(categoriaRepository.findById(parseInt(categoria)).get());
+            } else {
+                img.setTitulo(titulo);
+                img.setCategoria(categoriaRepository.findById(parseInt(categoria)).get());
+            }
+            galeriaRepository.save(img);
+        }
 
     }
 
