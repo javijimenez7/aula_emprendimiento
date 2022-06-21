@@ -4,6 +4,8 @@ $(function ($) {
              $(".main-panel").remove();
              $("<div></div>").addClass("main-panel").appendTo("#contenedor");
              $(".main-panel").load("/cargaPlantillaActividad/"+ this.id, function(){
+
+              $("#contenedor_archivo_actividad").css("visibility", "hidden");
                   tinymce.init({
                         selector: '#actividad_descripcion',
                         width: "100%",

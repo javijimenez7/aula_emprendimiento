@@ -2,11 +2,14 @@ package com.fuentezuelas.AulaEmprendimiento.actividad.infrastructure.controller;
 
 import com.fuentezuelas.AulaEmprendimiento.actividad.domain.Actividad;
 import com.fuentezuelas.AulaEmprendimiento.actividad.infrastructure.repository.ActividadRepository;
+import com.fuentezuelas.AulaEmprendimiento.galeria.domain.Galeria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
+
+import static java.lang.Integer.parseInt;
 
 @RestController
 public class ActividadController {
@@ -96,27 +99,43 @@ public class ActividadController {
     @PostMapping(value = "guardaActividad")
     public void guardaActividad(@RequestParam(required = false, value = "idActividad") Integer id, @RequestParam(required = false, value = "nombre") String nombre, @RequestParam(required = false, value = "archivo") String archivo, @RequestParam(required = false, value = "descripcion") String descripcion) {
         Actividad act = new Actividad();
-        if (actividadRepository.findById(id).isPresent()) {
-            act = actividadRepository.findById(id).orElseThrow();
-            act.setArchivo(archivo);
-            act.setDescripcion(descripcion);
-            act.setFechaCreacion(LocalDate.now());
-            act.setNombre(nombre);
-        } else {
-            act.setArchivo(archivo);
-            act.setDescripcion(descripcion);
-            act.setNombre(nombre);
-            act.setFechaCreacion(LocalDate.now());
+        if(!id.equals(null)) {
+            if (actividadRepository.findById(id).isPresent()) {
+                act = actividadRepository.findById(id).orElseThrow();
+                act.setDescripcion(descripcion);
+                act.setFechaCreacion(LocalDate.now());
+                act.setNombre(nombre);
+            } else {
+                act.setArchivo(archivo);
+                act.setDescripcion(descripcion);
+                act.setNombre(nombre);
+                act.setFechaCreacion(LocalDate.now());
+            }
+            actividadRepository.save(act);
         }
-        actividadRepository.save(act);
-
     }
 
-    /**
-     * Endpoint que elimina una actividad de la base de datos
-     * @param id
-     *
-     */
+    @PostMapping(value = "modificaCategoria")
+    public void modificaImagen(@RequestParam(required = false, value = "idActividad") Integer id, @RequestParam(required = false, value = "nombre") String nombre, @RequestParam(required = false, value = "descripcion") String descripcion) {
+        Actividad act = new Actividad();
+        if (!id.equals(null)) {
+            if (actividadRepository.findById(id).isPresent()) {
+                act = actividadRepository.findById(id).orElseThrow();
+                act.setDescripcion(descripcion);
+                act.setNombre(nombre);
+            } else {
+                act.setDescripcion(descripcion);
+                act.setNombre(nombre);
+            }
+            actividadRepository.save(act);
+        }
+    }
+
+        /**
+         * Endpoint que elimina una actividad de la base de datos
+         * @param id
+         *
+         */
 
     @PostMapping(value = "eliminaActividad")
     public void eliminaActividad(@RequestParam(required = false, value = "idActividad") Integer id) {
